@@ -108,7 +108,7 @@ Students choose tasks from three categories. Each module has a difficulty level 
 
 ## 📊 Grading
 
-See [评分标准.md](ch/评分标准.md) or [grading_criteria.md](en/grading_criteria.md) for detailed grading criteria.
+See [评分标准](ch/评分标准.md) or [grading_criteria](en/grading_criteria.md) for detailed grading criteria.
 
 **Key Principles:**
 - Foundational modules focus on completeness and quality
