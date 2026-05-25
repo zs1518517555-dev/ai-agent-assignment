@@ -137,7 +137,7 @@
 
 ## 📊 评分标准
 
-详见 [ch/评分标准.md](ch/评分标准.md) 或 [en/grading_criteria.md](en/grading_criteria.md)。
+详见 [评分标准](ch/评分标准.md) 或 [grading_criteria](en/grading_criteria.md)。
 
 **评分原则：**
 - 基础模块侧重完整性与质量
