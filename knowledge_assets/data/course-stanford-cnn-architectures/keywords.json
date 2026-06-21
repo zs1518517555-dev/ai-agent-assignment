@@ -1,0 +1,7 @@
+[
+    "cnn-architectures",
+    "alexnet",
+    "vgg",
+    "googlenet",
+    "resnet"
+]

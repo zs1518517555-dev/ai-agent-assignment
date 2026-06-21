@@ -1,0 +1,1 @@
+本文探讨了一种基于Transformer架构的新类扩散模型。通过将常用的U-Net骨干替换为在潜在补丁上操作的Transformer，研究者们分析了这些Diffusion Transformers (DiTs) 的可扩展性，并发现具有更高Gflops的DiTs能够持续降低FID值。实验表明，在ImageNet 512x512和256x256分辨率下，最大的DiT-XL/2模型达到了最先进的FID分数。

@@ -1,0 +1,1 @@
+本节课主要介绍了深度学习软件的相关内容，包括CPU与GPU的对比、常见的深度学习框架（如Caffe/Caffe2、Theano/TensorFlow、Torch/PyTorch）以及如何编程GPU。课程还讨论了CUDA和OpenCL等编程工具，并通过实例展示了在实际应用中CPU与GPU性能的差异。
