@@ -1,0 +1,17 @@
+{
+  "group_leader": 1,
+  "student_id": "25210812000032",
+  "student_name": "杨兴钊",
+  "members": [
+    {
+      "student_id": "25220854050040",
+      "student_name": "朱效",
+      "role": "项目路演与展示"
+    }
+  ],
+  "research_direction": "3D医学图像处理与深度学习架构",
+  "weight_A": 0.5,
+  "weight_B": 0.5,
+  "PartA_summary": "构建75个结构化知识资产，覆盖学术论文、课程资源、教材三类来源；补充评测基准元数据与引用字段，形成可追溯QA题库。",
+  "PartB_summary": "构建基于Gradio的中央路由智能体，集成RAG学术专家与NIfTI医学影像预处理流水线，支持自然语言意图识别、问答拒识与特征张量生成。"
+}

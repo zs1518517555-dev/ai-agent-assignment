@@ -1,0 +1,9 @@
+gradio
+rich
+requests
+PyPDF2
+pdfplumber
+nibabel
+numpy
+scipy
+python-dotenv

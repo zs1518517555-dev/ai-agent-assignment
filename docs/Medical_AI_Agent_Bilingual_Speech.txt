@@ -1,0 +1,86 @@
+﻿Medical AI Agent Presentation Script
+中英文演讲稿
+
+Slide 1. 3D Medical Image Intelligent Agent
+中文：
+大家好，今天我汇报的项目是 3D Medical Image Intelligent Agent，也就是一个面向三维医学影像的智能助理系统。它不是单一模型展示，而是把医学知识问答、NIfTI 数据处理、分割可视化、Dice/IoU 评估和 MedSAM 模型推理整合到同一个本地应用中。当前系统已经加载 75 个本地知识资产、81 道 QA 评测题，并管理 277 个病例文件夹，其中 155 个病例具备完整的图像和标签数据。
+
+English:
+Good morning everyone. Today I will present our project, the 3D Medical Image Intelligent Agent. This is not just a single model demo. It is an integrated local system that combines medical knowledge QA, NIfTI preprocessing, segmentation visualization, Dice/IoU evaluation, and MedSAM-based inference. The current system loads 75 local knowledge assets, 81 QA benchmark items, and manages 277 patient folders, including 155 complete cases with both image and mask data.
+
+Slide 2. Project Snapshot
+中文：
+从整体来看，这个项目主要包含四个能力。第一是基于本地知识库的医学问答；第二是医学影像数据处理，把原始 NIfTI 转成标准化数组；第三是分割实验工作区，用于浏览切片、叠加标签和计算 Dice、IoU；第四是模型适配层，用于接入 MedSAM，并为后续模型扩展保留接口。整个系统的设计原则是：所有知识、数据、标签和预测结果都保留在本地，并且可以被检查和复用。
+
+English:
+At a high level, the project has four main capabilities. First, it provides medical QA based on a local knowledge base. Second, it processes medical imaging data by converting raw NIfTI files into standardized arrays. Third, it provides a segmentation workspace for slice browsing, mask overlays, and Dice/IoU evaluation. Fourth, it includes a model adapter layer for MedSAM and future model expansion. The core design principle is to keep knowledge, data, masks, and predictions local, inspectable, and reusable.
+
+Slide 3. System Architecture
+中文：
+系统入口是 Gradio Web UI。用户在界面中选择问答、数据处理、可视化或模型推理任务。之后系统会把任务分发给不同模块，包括专家问答 Agent、医学数据处理模块、分割可视化模块和模型适配模块。所有处理结果都会写回本地病例文件夹，例如处理后的图像数组、真实标签、评估结果和模型预测输出。
+
+English:
+The entry point of the system is a Gradio web interface. Users can perform QA, data processing, visualization, or model inference from the same UI. The task is then dispatched to specialized modules, including the expert QA agent, the medical data processor, the segmentation visualizer, and the model adapter. Outputs are written back to local case folders, including processed image arrays, ground-truth masks, evaluation results, and model predictions.
+
+Slide 4. Evidence Memory
+中文：
+知识问答部分不是直接让大模型自由回答，而是先从本地知识资产和 QA 数据中检索相关内容，再基于这些证据生成回答。这样做有两个好处：第一，回答更贴近项目领域；第二，当问题超出医学影像或分割范围时，系统可以避免过度自信地编造答案。
+
+English:
+The QA component does not simply ask a large model to answer freely. Instead, it first retrieves relevant information from the local knowledge assets and QA examples, and then generates an answer based on that evidence. This gives us two advantages. First, the answer stays closer to the project domain. Second, when a question is outside the medical imaging or segmentation scope, the system is less likely to produce an overconfident fabricated answer.
+
+Slide 5. NIfTI Pipeline
+中文：
+数据处理模块负责把原始 NIfTI 图像和标签转换为统一格式。系统会读取图像和 mask，调整到 128 × 128 × 64 的目标尺寸。图像部分使用插值和 Z-score 标准化，mask 部分使用最近邻插值，从而保持标签类别不被破坏。最终输出 image_processed.npy 和 mask_processed.npy，供后续可视化、指标计算和模型推理使用。
+
+English:
+The data processing module converts raw NIfTI images and masks into a unified format. The system reads the image and mask volumes and resizes them to 128 by 128 by 64. Images are interpolated and normalized with Z-score normalization, while masks use nearest-neighbor interpolation to preserve discrete labels. The final outputs are image_processed.npy and mask_processed.npy, which are used for visualization, metric calculation, and model inference.
+
+Slide 6. Segmentation Workspace
+中文：
+分割工作区用于做可视化检查。用户可以选择数据集路径、病例、轴向方向、切片编号和透明度，并在真实 mask 与模型预测之间切换。系统会同时展示图像、mask 和 overlay 叠加效果，并计算当前切片和三维体数据层面的 Dice 与 IoU 指标。
+
+English:
+The segmentation workspace is designed for visual quality inspection. Users can select the dataset path, case ID, axis, slice index, and overlay opacity, and they can switch between ground-truth masks and model predictions. The system displays the image, mask, and overlay views, and reports Dice and IoU metrics at both the current-slice level and the full-volume level.
+
+Slide 7. Model Prediction Workflow
+中文：
+这一页展示模型预测流程。系统通过 MedSAM adapter 把可视化工作区和模型推理连接起来。首先检查官方 medsam_vit_b.pth 权重是否存在；然后根据真实 mask 或默认图像区域构造 box prompt；接着对当前切片运行 CPU 兼容的推理；最后将预测结果送回可视化界面，用相同的 overlay 和 Dice/IoU 指标进行检查。
+
+English:
+This slide shows the model prediction workflow. The system connects the visual workspace to model inference through the MedSAM adapter. It first checks whether the official medsam_vit_b.pth checkpoint is available. It then builds a box prompt from the ground-truth mask or a default image region, runs CPU-safe slice-level inference, and sends the prediction back to the visualization interface for overlay inspection and Dice/IoU evaluation.
+
+Slide 8. MedSAM Adapter
+中文：
+模型接入部分通过 model_adapters 实现，当前接入的是 MedSAM。这个适配器负责检查权重是否存在、加载 medsam_vit_b.pth、构造 box prompt，并对当前切片进行预测。为了适配普通电脑环境，代码中也处理了 CPU 加载问题。如果权重缺失，界面会给出清晰提示，要求先配置模型权重后再运行推理。
+
+English:
+The model integration is implemented through the model_adapters layer, and the current adapter supports MedSAM. It checks whether the checkpoint exists, loads medsam_vit_b.pth, builds a box prompt, and predicts the current slice. The code also handles CPU-safe loading for ordinary local machines. If the checkpoint is missing, the UI provides a clear status message and asks the user to configure model weights before inference.
+
+Slide 9. Runtime Module Map
+中文：
+从代码结构上看，web_ui.py 负责界面和事件连接；expert_qa_agent.py 负责本地 RAG 问答；medical_agent.py 负责 NIfTI 数据预处理；segmentation_visualizer.py 负责图像渲染、mask 叠加和指标计算；model_adapters/base.py 定义模型适配接口和未配置状态；medsam_adapter.py 负责 MedSAM 推理。这样的模块划分让系统更容易维护，也方便后续接入 MedSAM2 或 nnU-Net。
+
+English:
+In terms of implementation, web_ui.py handles the interface and event wiring. expert_qa_agent.py provides local RAG-based QA. medical_agent.py handles NIfTI preprocessing. segmentation_visualizer.py renders image slices, overlays masks, and computes metrics. model_adapters/base.py defines the adapter contract and unavailable-model status, while medsam_adapter.py runs MedSAM inference. This modular structure makes the system easier to maintain and leaves room for future adapters such as MedSAM2 or nnU-Net.
+
+Slide 10. Demo Narrative
+中文：
+在实际演示中，用户可以从一个医学影像问题开始，先使用本地知识库进行问答；然后处理原始 NIfTI 数据，生成标准化数组；接着进入分割工作区检查切片、标签和指标；最后在权重可用时运行 MedSAM 预测。这个流程展示了系统从知识推理到影像处理再到模型输出的完整闭环。
+
+English:
+In the demo workflow, the user can start with a medical imaging question and use the local knowledge base for QA. Then the user can process raw NIfTI data into standardized arrays. Next, the segmentation workspace allows inspection of slices, masks, and metrics. Finally, when model weights are available, the user can run MedSAM prediction. This demonstrates a complete loop from knowledge reasoning to image processing and model output.
+
+Slide 11. Demo Video
+中文：
+最后这一页是系统 demo 视频。视频展示了前面提到的关键流程，包括界面启动、知识库加载、病例选择、分割可视化以及模型预测相关操作。通过这个视频可以看到，项目已经从单独脚本发展成了一个可以交互使用的本地医学影像智能助理。
+
+English:
+The final slide contains the demo video. It shows the key workflow discussed above, including launching the interface, loading the knowledge base, selecting cases, visualizing segmentation results, and using model prediction functions. The video demonstrates that the project is now an interactive local medical imaging assistant rather than a collection of separate scripts.
+
+Closing
+中文：
+总结来说，本项目的核心贡献是把本地知识库、医学影像处理、分割可视化、评估指标和 MedSAM 模型适配整合到一个统一系统中。它既能支持课堂演示，也能作为后续实验和模型扩展的基础。我的汇报到这里，谢谢大家。
+
+English:
+To summarize, the main contribution of this project is the integration of local knowledge retrieval, medical image processing, segmentation visualization, evaluation metrics, and MedSAM model adaptation into one unified system. It can support the class demonstration and also serve as a foundation for future experiments and model expansion. That concludes my presentation. Thank you.

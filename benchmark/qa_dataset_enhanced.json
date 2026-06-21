@@ -1,0 +1,2277 @@
+[
+  {
+    "id": "qa-001",
+    "question": "2DMamba如何克服了传统基于Transformer的方法在处理长序列时面临的二次复杂度挑战？",
+    "answer": "2DMamba通过引入一种具有线性时间复杂度的选择性状态空间模型(SSM)，同时保持高并行性，从而有效解决了这一问题。它特别针对二维图像数据进行了优化设计，能够更好地保留图像的空间结构信息，避免了将二维图像转换为一维序列过程中可能出现的空间不连续性问题。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "2d-mamba-for-wsi-classification",
+      "citation_apa": "Zhang, J., Nguyen, A. T., Han, X., Trinh, V. Q.-H., Qin, H., Samaras, D., Hosseini, M. S. (2024). 2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification. [Preprint]. arXiv.",
+      "evidence_file": "PartA_知识资产与评测基准/data/2d-mamba-for-wsi-classification/content.txt",
+      "keywords": [
+        "2D State Space Model",
+        "Whole Slide Imaging",
+        "Efficient Modeling",
+        "Spatial Continuity"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "2DMamba通过引入一种具有线性时间复杂度的选择性状态空间模型(SSM)，同时保持高并行性，从而有效解决了这一问题。它特别针对二维图像数据进行了优化设计，能够更好地保留图像的空间结构信息，避免了将二维图像转换为一维序列过程中可能出现的空间不连续性问题。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-002",
+    "question": "在这篇论文中，作者如何利用扩散模型来提高医学图像分割任务中的不确定度估计？",
+    "answer": "作者通过修改扩散模型的训练和采样方案，使得模型能够在给定输入图像的情况下生成多个不同的分割掩码。由于每次采样过程中都包含随机元素，因此可以为同一张图像生成多组分割结果。通过对这些分割结果进行统计分析，如计算像素级别的方差，就可以得到反映分割不确定性的地图。这种方法不仅提高了分割精度，还为临床应用提供了重要的不确定性信息。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "diffusion-models-for-implicit-segmentation-ensembles",
+      "citation_apa": "Wolleb, J., Sandkühler, R., Bieder, F., Valmaggia, P., & Cattin, P. C. (2021). Diffusion Models for Implicit Image Segmentation Ensembles. arXiv preprint arXiv:2112.03145.",
+      "evidence_file": "PartA_知识资产与评测基准/data/diffusion-models-for-implicit-segmentation-ensembles/content.txt",
+      "keywords": [
+        "Diffusion models",
+        "segmentation",
+        "uncertainty estimation",
+        "medical image analysis"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者通过修改扩散模型的训练和采样方案，使得模型能够在给定输入图像的情况下生成多个不同的分割掩码。由于每次采样过程中都包含随机元素，因此可以为同一张图像生成多组分割结果。通过对这些分割结果进行统计分析，如计算像素级别的方差，就可以得到反映分割不确定性的地图。这种方法不仅提高了分割精...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-003",
+    "question": "Iris框架如何通过上下文学习实现对未见类别的良好泛化？其背后的机制是什么？",
+    "answer": "Iris框架通过引入一个轻量级的任务编码模块来实现这一点，该模块可以从提供的参考图像-标签对中提炼出任务相关的特征信息。这种设计使得模型能够在没有额外训练的情况下理解并处理新的分割任务或类别。具体来说，当面对一个新的分割任务时，用户只需提供少量带有正确标注的参考样本，Iris就能基于这些样本来生成高质量的分割结果，从而有效地解决了传统方法需要大量数据进行重新训练的问题。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "in-context-learning-medical-image-segmentation",
+      "citation_apa": "Gao, Y., Liu, D., Li, Z., Li, Y., Chen, D., Zhou, M., & Metaxas, D. N. (n.d.). Show and Segment: Universal Medical Image Segmentation via In-Context Learning. Retrieved from [CVPR Open Access version]",
+      "evidence_file": "PartA_知识资产与评测基准/data/in-context-learning-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "In-Context Learning",
+        "Task Encoding",
+        "Generalization"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Iris框架通过引入一个轻量级的任务编码模块来实现这一点，该模块可以从提供的参考图像-标签对中提炼出任务相关的特征信息。这种设计使得模型能够在没有额外训练的情况下理解并处理新的分割任务或类别。具体来说，当面对一个新的分割任务时，用户只需提供少量带有正确标注的参考样本，Iris就能...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-004",
+    "question": "HYDEN方法如何处理图像-文本对之间的语义不确定性问题？",
+    "answer": "HYDEN方法通过引入双曲密度嵌入来解决图像-文本对之间的语义不确定性问题。它不仅考虑了图像的全局特征，还结合了文本感知的局部特征，并使用双曲伪高斯分布将这些特征映射到双曲空间中。此外，通过设计一种封装损失函数来建模图像-文本密度分布间的偏序关系，从而更好地捕捉图像与文本之间的复杂关联。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "hyperbolic-density-embeddings-for-medical-images-and-reports",
+      "citation_apa": "Qiao, Z., Han, L., Zhen, X., Gao, J. H., & Qian, Z. (2024). HYDEN: Hyperbolic Density Representations for Medical Images and Reports. arXiv preprint arXiv:2408.09715v2.",
+      "evidence_file": "PartA_知识资产与评测基准/data/hyperbolic-density-embeddings-for-medical-images-and-reports/content.txt",
+      "keywords": [
+        "Hyperbolic Density Embedding",
+        "Medical Images and Reports",
+        "Cross-modal Representation Learning",
+        "Zero-shot Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "HYDEN方法通过引入双曲密度嵌入来解决图像-文本对之间的语义不确定性问题。它不仅考虑了图像的全局特征，还结合了文本感知的局部特征，并使用双曲伪高斯分布将这些特征映射到双曲空间中。此外，通过设计一种封装损失函数来建模图像-文本密度分布间的偏序关系，从而更好地捕捉图像与文本之间的复...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-005",
+    "question": "在Hyperbolic U-Net的设计中，为什么需要特别设计超双曲二维转置卷积和双线性上采样层？这些层如何帮助解决医学图像分割中的噪声问题？",
+    "answer": "在Hyperbolic U-Net的设计中，为了使整个网络能够在双曲空间中有效运行，必须开发适用于双曲几何的新层类型，如超双曲二维转置卷积和双线性上采样层。这些层不仅支持构建完整的解码器部分，还通过利用双曲空间的独特性质来增强模型对输入数据中噪声的鲁棒性。具体来说，双曲空间能够更好地捕捉具有层次结构的数据特征，这有助于减少随机噪声对分割性能的影响。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "hyperbolic-unet-segmentation",
+      "citation_apa": "Mishra, S. S., van Spengler, M., Berkhout, E., & Mettes, P. (2026). Hyperbolic U-Net for Robust Medical Image Segmentation. In Proceedings of Machine Learning Research (pp. 1–35).",
+      "evidence_file": "PartA_知识资产与评测基准/data/hyperbolic-unet-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "Hyperbolic Neural Networks",
+        "Robustness"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在Hyperbolic U-Net的设计中，为了使整个网络能够在双曲空间中有效运行，必须开发适用于双曲几何的新层类型，如超双曲二维转置卷积和双线性上采样层。这些层不仅支持构建完整的解码器部分，还通过利用双曲空间的独特性质来增强模型对输入数据中噪声的鲁棒性。具体来说，双曲空间能够更...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-006",
+    "question": "MedSegDiff中提出的动态条件编码是如何提高医学图像分割精度的？",
+    "answer": "在MedSegDiff中，动态条件编码为每个采样步骤建立了状态自适应条件，这有助于模型更好地捕捉到目标区域与背景之间的细微差异，特别是在处理模糊边界或低对比度的情况下。通过这种方式，模型能够在生成过程中更准确地定位和分割出感兴趣的结构，从而提高了整体分割性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "medsegdiff-medical-image-segmentation",
+      "citation_apa": "Wu, J., Fu, R., Fang, H., Zhang, Y., Yang, Y., Xiong, H., Liu, H., & Xu, Y. (2023). MedSegDiff: Medical Image Segmentation with Diffusion Probabilistic Model. arXiv preprint arXiv:2211.00611v5.",
+      "evidence_file": "PartA_知识资产与评测基准/data/medsegdiff-medical-image-segmentation/content.txt",
+      "keywords": [
+        "diffusion probabilistic model",
+        "medical image segmentation",
+        "brain tumor",
+        "optic cup",
+        "thyroid nodule"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在MedSegDiff中，动态条件编码为每个采样步骤建立了状态自适应条件，这有助于模型更好地捕捉到目标区域与背景之间的细微差异，特别是在处理模糊边界或低对比度的情况下。通过这种方式，模型能够在生成过程中更准确地定位和分割出感兴趣的结构，从而提高了整体分割性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-007",
+    "question": "Siamese-Diffusion模型如何通过噪声一致性损失来增强Mask-Diffusion部分的形态保真度？这种机制对于最终生成图像的质量有何具体影响？",
+    "answer": "Siamese-Diffusion模型通过在Mask-Diffusion与Image-Diffusion之间引入噪声一致性损失，促使两者在学习过程中保持一致性的噪声分布，从而使得Mask-Diffusion能够更好地捕捉到复杂的形态特征。这一机制有助于生成具有更高保真度的合成图像，特别是保留了重要的表面纹理等细节信息，进而提高了基于这些合成数据训练的分割模型的准确性和鲁棒性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "siamese-diffusion-medical-image-synthesis-segmentation",
+      "citation_apa": "Qiu, K., Gao, Z., Zhou, Z., Sun, M., & Guo, Y. (n.d.). Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation. In CVPR.",
+      "evidence_file": "PartA_知识资产与评测基准/data/siamese-diffusion-medical-image-synthesis-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Synthesis",
+        "Segmentation",
+        "Diffusion Models",
+        "Noise Consistency Loss"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Siamese-Diffusion模型通过在Mask-Diffusion与Image-Diffusion之间引入噪声一致性损失，促使两者在学习过程中保持一致性的噪声分布，从而使得Mask-Diffusion能够更好地捕捉到复杂的形态特征。这一机制有助于生成具有更高保真度的合成图像...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-008",
+    "question": "2DMamba如何解决从一维序列处理到二维图像处理过程中遇到的空间不连续性问题？",
+    "answer": "2DMamba通过引入一种新的二维选择性状态空间模型架构来直接处理图像的二维结构，而不是像传统方法那样将二维图像展平成一维序列进行处理。这种方法能够保持相邻像素或补丁之间的空间关系不变，从而解决了由于一维序列化导致的空间信息丢失问题，确保了图像处理过程中的空间连续性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "2d-mamba-image-representation",
+      "citation_apa": "Zhang, J., Nguyen, A. T., Han, X., Trinh, V. Q.-H., Qin, H., Samaras, D., Hosseini, M. S. (2024). 2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification. arXiv preprint arXiv:241.",
+      "evidence_file": "PartA_知识资产与评测基准/data/2d-mamba-image-representation/content.txt",
+      "keywords": [
+        "State Space Model",
+        "Whole Slide Imaging",
+        "Efficient Modeling",
+        "Spatial Continuity"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "2DMamba通过引入一种新的二维选择性状态空间模型架构来直接处理图像的二维结构，而不是像传统方法那样将二维图像展平成一维序列进行处理。这种方法能够保持相邻像素或补丁之间的空间关系不变，从而解决了由于一维序列化导致的空间信息丢失问题，确保了图像处理过程中的空间连续性。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-009",
+    "question": "U-ViT架构如何处理不同类型的输入数据（如时间、条件和噪声图像块），并利用这些信息进行有效的图像生成？",
+    "answer": "U-ViT通过将所有输入类型（包括时间、条件以及噪声图像块）统一转换为tokens的方式来进行处理。这种方法允许模型以一致的形式理解和处理各种输入信息。此外，通过引入长跳跃连接，U-ViT能够在浅层和深层之间建立直接的信息传递路径，从而有助于保持重要特征的同时促进模型学习更加复杂的模式，这对于提高图像生成的质量至关重要。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-876"
+    },
+    "reference": {
+      "topic": "u-vit-diffusion-models",
+      "citation_apa": "Bao, F., Nie, S., Xue, K., Cao, Y., Li, C., Su, H., & Zhu, J. (2023). All are Worth Words: A ViT Backbone for Diffusion Models. arXiv preprint arXiv:2209.12152v4 [cs.CV].",
+      "evidence_file": "PartA_知识资产与评测基准/data/u-vit-diffusion-models/content.txt",
+      "keywords": [
+        "Vision Transformers",
+        "Diffusion Models",
+        "U-Net",
+        "Image Generation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "U-ViT通过将所有输入类型（包括时间、条件以及噪声图像块）统一转换为tokens的方式来进行处理。这种方法允许模型以一致的形式理解和处理各种输入信息。此外，通过引入长跳跃连接，U-ViT能够在浅层和深层之间建立直接的信息传递路径，从而有助于保持重要特征的同时促进模型学习更加复杂...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-010",
+    "question": "在基于非平衡热力学的深度无监督学习框架中，如何设计前向与反向扩散过程以确保模型既能保持灵活性又能保证计算上的可操作性？",
+    "answer": "为了确保模型同时具备灵活性和计算上的可操作性，在设计前向与反向扩散过程时，关键在于选择合适的噪声添加策略及相应的逆过程。具体来说，前向扩散通过逐渐增加噪声来平滑原始数据分布，而反向扩散则需精心构造以有效去除这些噪声，恢复原始数据结构。这一过程中，采用适当的参数化形式（如神经网络）对于实现高效训练至关重要。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "non-equilibrium-thermodynamics-deep-learning",
+      "citation_apa": "Sohl-Dickstein, J., Weiss, E. A., Maheswaranathan, N., & Ganguli, S. (2015). Deep unsupervised learning using nonequilibrium thermodynamics. Proceedings of the 32nd International Conference on Machine Learning, 37, 2266-2275.",
+      "evidence_file": "PartA_知识资产与评测基准/data/non-equilibrium-thermodynamics-deep-learning/content.txt",
+      "keywords": [
+        "unsupervised learning",
+        "nonequilibrium thermodynamics",
+        "diffusion process",
+        "generative models"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "为了确保模型同时具备灵活性和计算上的可操作性，在设计前向与反向扩散过程时，关键在于选择合适的噪声添加策略及相应的逆过程。具体来说，前向扩散通过逐渐增加噪声来平滑原始数据分布，而反向扩散则需精心构造以有效去除这些噪声，恢复原始数据结构。这一过程中，采用适当的参数化形式（如神经网络）...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-011",
+    "question": "扩散概率模型如何利用去噪得分匹配与Langevin动力学来提高图像生成的质量？",
+    "answer": "扩散概率模型通过设计一个加权变分边界，结合了去噪得分匹配与Langevin动力学的思想，使得模型能够在训练过程中更有效地学习到从噪声中恢复清晰图像的能力。这种结合不仅提高了生成图像的质量，还允许模型采用一种类似于自回归解码的渐进式有损解压缩策略，从而进一步优化了生成结果。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "denoising-diffusion-probabilistic-models",
+      "citation_apa": "Ho, J., Jain, A., & Abbeel, P. (2020). Denoising diffusion probabilistic models. In 34th Conference on Neural Information Processing Systems (NeurIPS 2020), Vancouver, Canada.",
+      "evidence_file": "PartA_知识资产与评测基准/data/denoising-diffusion-probabilistic-models/content.txt",
+      "keywords": [
+        "Diffusion Probabilistic Models",
+        "Denoising Score Matching",
+        "Langevin Dynamics",
+        "Image Synthesis"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "扩散概率模型通过设计一个加权变分边界，结合了去噪得分匹配与Langevin动力学的思想，使得模型能够在训练过程中更有效地学习到从噪声中恢复清晰图像的能力。这种结合不仅提高了生成图像的质量，还允许模型采用一种类似于自回归解码的渐进式有损解压缩策略，从而进一步优化了生成结果。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-012",
+    "question": "在本研究中，作者如何利用扩散模型来生成不确定性的估计？这对实际医疗应用有何意义？",
+    "answer": "作者通过在扩散模型的采样过程中引入随机性，使得对于同一输入图像可以生成多个不同的分割掩码。这些分割结果之间的差异被用来计算像素级别的方差图，即不确定性图谱。这种不确定性估计对于医疗应用非常重要，因为它可以帮助医生更好地理解模型预测的可靠性，特别是在制定治疗计划时，如放射治疗等需要高度精确度的情况下。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "diffusion-models-for-implicit-segmentation-ensembles",
+      "citation_apa": "Wolleb, J., Sandkühler, R., Bieder, F., Valmaggia, P., & Cattin, P. C. (2021). Diffusion Models for Implicit Image Segmentation Ensembles. arXiv preprint arXiv:2112.03145.",
+      "evidence_file": "PartA_知识资产与评测基准/data/diffusion-models-for-implicit-segmentation-ensembles/content.txt",
+      "keywords": [
+        "Diffusion models",
+        "segmentation",
+        "uncertainty estimation",
+        "medical image analysis"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者通过在扩散模型的采样过程中引入随机性，使得对于同一输入图像可以生成多个不同的分割掩码。这些分割结果之间的差异被用来计算像素级别的方差图，即不确定性图谱。这种不确定性估计对于医疗应用非常重要，因为它可以帮助医生更好地理解模型预测的可靠性，特别是在制定治疗计划时，如放射治疗等需要...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-013",
+    "question": "Iris框架中的轻量级上下文任务编码模块是如何从参考图像-标签对中提取特定任务信息，并将其应用于目标对象分割的？",
+    "answer": "Iris框架内的轻量级上下文任务编码模块通过分析提供的参考图像及其对应的标签，提炼出与特定任务相关的特征或模式。这些被提取的信息随后被转换成一个丰富的上下文嵌入向量，用于指导模型对新的、未见的目标对象执行分割任务。这种方式使得模型能够在不经过额外训练的情况下适应新任务，从而提高了其灵活性和泛化能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "in-context-medical-image-segmentation",
+      "citation_apa": "Gao, Y., Liu, D., Li, Z., Li, Y., Chen, D., Zhou, M., & Metaxas, D. N. (n.d.). Show and Segment: Universal Medical Image Segmentation via In-Context Learning. CVPR.",
+      "evidence_file": "PartA_知识资产与评测基准/data/in-context-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "In-Context Learning",
+        "Generalization",
+        "Task Encoding"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Iris框架内的轻量级上下文任务编码模块通过分析提供的参考图像及其对应的标签，提炼出与特定任务相关的特征或模式。这些被提取的信息随后被转换成一个丰富的上下文嵌入向量，用于指导模型对新的、未见的目标对象执行分割任务。这种方式使得模型能够在不经过额外训练的情况下适应新任务，从而提高了...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-014",
+    "question": "HYDEN模型如何处理医学图像中存在的语义不确定性？",
+    "answer": "HYDEN模型通过结合文本感知的局部特征与图像的全局特征，并采用双曲伪高斯分布将这些特征映射至双曲空间内的密度特征，从而有效解决了医学图像中常见的语义不确定性问题。此外，它还使用封装损失函数来建模图像-文本密度分布间的偏序关系，进一步增强了模型对复杂语义关系的理解能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "hyperbolic-density-embeddings-for-medical-images",
+      "citation_apa": "Qiao, Z., Han, L., Zhen, X., Gao, J.-H., & Qian, Z. (2024). HYDEN: Hyperbolic Density Representations for Medical Images and Reports. arXiv preprint arXiv:2408.09715v2.",
+      "evidence_file": "PartA_知识资产与评测基准/data/hyperbolic-density-embeddings-for-medical-images/content.txt",
+      "keywords": [
+        "Hyperbolic Density Embedding",
+        "Medical Image Analysis",
+        "Cross-Modal Representation Learning",
+        "Zero-Shot Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "HYDEN模型通过结合文本感知的局部特征与图像的全局特征，并采用双曲伪高斯分布将这些特征映射至双曲空间内的密度特征，从而有效解决了医学图像中常见的语义不确定性问题。此外，它还使用封装损失函数来建模图像-文本密度分布间的偏序关系，进一步增强了模型对复杂语义关系的理解能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-015",
+    "question": "在Hyperbolic U-Net中，作者是如何解决超曲面解码器块中的权重初始化问题的？",
+    "answer": "为了解决超曲面解码器块中的权重初始化问题，作者提出了一种基于牛顿近似缩放的权重初始化方法，这种方法确保了所有层在训练开始时的范数保持不变，从而提高了模型的稳定性和性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "hyperbolic-unet-segmentation",
+      "citation_apa": "Mishra, S. S., van Spengler, M., Berkhout, E., & Mettes, P. (2026). Hyperbolic U-Net for Robust Medical Image Segmentation. In Proceedings of Machine Learning Research (pp. 1–35).",
+      "evidence_file": "PartA_知识资产与评测基准/data/hyperbolic-unet-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "Hyperbolic Neural Networks",
+        "Robustness"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "为了解决超曲面解码器块中的权重初始化问题，作者提出了一种基于牛顿近似缩放的权重初始化方法，这种方法确保了所有层在训练开始时的范数保持不变，从而提高了模型的稳定性和性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-016",
+    "question": "在这篇论文中，作者如何利用双曲空间来改进医学图像中的异常检测？这种方法相比传统的基于欧几里得空间的方法有哪些优势？",
+    "answer": "作者通过将从预训练网络提取的特征映射到双曲空间中，利用双曲空间的指数扩展特性更好地表达了特征之间的层次结构关系。这使得模型能够在正常与异常样本之间形成更加清晰的边界，尤其是在处理具有复杂层级结构的数据时表现出色。相较于传统的欧几里得空间方法，双曲空间方法不仅提高了异常检测的准确性，还在面对标注数据稀缺的情况下展现了更强的鲁棒性和适应能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-456"
+    },
+    "reference": {
+      "topic": "hyperbolic-space-medical-anomaly-detection",
+      "citation_apa": "Gonzalez-Jimenez, A., Lionetti, S., Amruthalingam, L., Gottfrois, P., Gröger, F., Pouly, M., & Navarini, A. A. (2025). Is Hyperbolic Space All You Need for Medical Anomaly Detection? arXiv preprint arXiv:2505.21228.",
+      "evidence_file": "PartA_知识资产与评测基准/data/hyperbolic-space-medical-anomaly-detection/content.txt",
+      "keywords": [
+        "Hyperbolic Learning",
+        "Anomaly Detection",
+        "Hierarchical",
+        "Medical Imaging"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者通过将从预训练网络提取的特征映射到双曲空间中，利用双曲空间的指数扩展特性更好地表达了特征之间的层次结构关系。这使得模型能够在正常与异常样本之间形成更加清晰的边界，尤其是在处理具有复杂层级结构的数据时表现出色。相较于传统的欧几里得空间方法，双曲空间方法不仅提高了异常检测的准确性...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-017",
+    "question": "MedSegDiff中提出的动态条件编码是如何帮助提高医学图像分割精度的？",
+    "answer": "在MedSegDiff中，动态条件编码为每个采样步骤提供了状态自适应条件，这意味着它可以根据当前处理阶段的具体情况调整输入信息，从而使得模型能够更加精确地捕捉到目标区域与背景之间的细微差异。这种机制对于处理边界模糊或者对比度较低的目标特别有效，有助于提升最终的分割准确性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "medsegdiff-medical-image-segmentation",
+      "citation_apa": "Wu, J., Fu, R., Fang, H., Zhang, Y., Yang, Y., Xiong, H., Liu, H., & Xu, Y. (2023). MedSegDiff: Medical Image Segmentation with Diffusion Probabilistic Model. arXiv preprint arXiv:2211.00611v5.",
+      "evidence_file": "PartA_知识资产与评测基准/data/medsegdiff-medical-image-segmentation/content.txt",
+      "keywords": [
+        "diffusion probabilistic model",
+        "medical image segmentation",
+        "brain tumor",
+        "optic cup",
+        "thyroid nodule"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在MedSegDiff中，动态条件编码为每个采样步骤提供了状态自适应条件，这意味着它可以根据当前处理阶段的具体情况调整输入信息，从而使得模型能够更加精确地捕捉到目标区域与背景之间的细微差异。这种机制对于处理边界模糊或者对比度较低的目标特别有效，有助于提升最终的分割准确性。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-018",
+    "question": "MWCNN是如何通过小波变换实现对特征图尺寸的有效减小，并且这种设计如何影响模型的感受野？",
+    "answer": "MWCNN通过在收缩子网络中引入小波变换来分解输入图像为不同频率分量，从而减少了特征图的空间维度。同时，它还使用额外的卷积层来进一步减少特征图的通道数量。这种方法不仅提高了计算效率，而且通过多尺度的小波表示增强了模型捕捉更广泛空间上下文的能力，进而扩大了有效感受野。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "multi-level-wavelet-cnn-for-image-restoration",
+      "citation_apa": "Liu, P., Zhang, H., Zhang, K., Lin, L., & Zuo, W. (n.d.). Multi-level Wavelet-CNN for Image Restoration. Retrieved from [未提供具体年份]",
+      "evidence_file": "PartA_知识资产与评测基准/data/multi-level-wavelet-cnn-for-image-restoration/content.txt",
+      "keywords": [
+        "image restoration",
+        "wavelet transform",
+        "convolutional neural networks",
+        "receptive field"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MWCNN通过在收缩子网络中引入小波变换来分解输入图像为不同频率分量，从而减少了特征图的空间维度。同时，它还使用额外的卷积层来进一步减少特征图的通道数量。这种方法不仅提高了计算效率，而且通过多尺度的小波表示增强了模型捕捉更广泛空间上下文的能力，进而扩大了有效感受野。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-019",
+    "question": "Siamese-Diffusion是如何通过噪声一致性损失来改善Mask-Diffusion生成的图像质量的？",
+    "answer": "Siamese-Diffusion通过在Mask-Diffusion和Image-Diffusion之间引入噪声一致性损失，使得Mask-Diffusion能够更好地学习到图像的形态细节。这种机制确保了即使是在训练过程中使用较少的数据量时，也能生成具有高保真度的图像，从而解决了传统方法由于缺乏足够的训练数据而导致的低质量图像问题。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "siamese-diffusion-medical-image-synthesis",
+      "citation_apa": "Qiu, K., Gao, Z., Zhou, Z., Sun, M., & Guo, Y. (n.d.). Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation. Retrieved from [source]",
+      "evidence_file": "PartA_知识资产与评测基准/data/siamese-diffusion-medical-image-synthesis/content.txt",
+      "keywords": [
+        "deep learning",
+        "medical image synthesis",
+        "diffusion models",
+        "segmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Siamese-Diffusion通过在Mask-Diffusion和Image-Diffusion之间引入噪声一致性损失，使得Mask-Diffusion能够更好地学习到图像的形态细节。这种机制确保了即使是在训练过程中使用较少的数据量时，也能生成具有高保真度的图像，从而解决了传...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-020",
+    "question": "在这篇论文中，作者如何证明使用Transformer作为骨干网络的扩散模型比传统的U-Net结构更有效？",
+    "answer": "作者通过对比不同计算复杂度（以Gflops衡量）下的FID分数来展示基于Transformer的扩散模型的有效性。结果显示，随着模型计算量的增加，FID分数持续下降，且在ImageNet 512x512和256x256分辨率的任务上，最大的DiT-XL/2模型超越了所有先前基于U-Net的扩散模型，达到了最佳性能。这表明，尽管传统上认为U-Net对于扩散模型至关重要，但Transformer同样可以提供甚至更好的生成质量。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "diffusion-transformers-image-generation",
+      "citation_apa": "Peebles, W., & Xie, S. (2023). Scalable Diffusion Models with Transformers. arXiv preprint arXiv:2212.09748v2 [cs.CV].",
+      "evidence_file": "PartA_知识资产与评测基准/data/diffusion-transformers-image-generation/content.txt",
+      "keywords": [
+        "Diffusion Models",
+        "Transformers",
+        "Image Generation",
+        "Scalability"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者通过对比不同计算复杂度（以Gflops衡量）下的FID分数来展示基于Transformer的扩散模型的有效性。结果显示，随着模型计算量的增加，FID分数持续下降，且在ImageNet 512x512和256x256分辨率的任务上，最大的DiT-XL/2模型超越了所有先前基于U...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-021",
+    "question": "2D选择性扫描（SS2D）是如何克服传统自注意力机制在处理高分辨率图像时遇到的计算瓶颈问题的？",
+    "answer": "2D选择性扫描（SS2D）通过沿四个方向进行扫描来收集上下文信息，这种方式不仅保留了全局感受野的优点，还避免了自注意力机制中随token数量增加而产生的二次计算复杂度问题。因此，SS2D能够在保持高效的同时，为每个图像块提供丰富的上下文知识。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "vmamba-visual-state-space-model",
+      "citation_apa": "Liu, Y., Tian, Y., Zhao, Y., Yu, H., Xie, L., Wang, Y., Ye, Q., Jiao, J., & Liu, Y. (2024). VMamba: Visual State Space Model. arXiv preprint arXiv:2401.10166v4.",
+      "evidence_file": "PartA_知识资产与评测基准/data/vmamba-visual-state-space-model/content.txt",
+      "keywords": [
+        "Visual State-Space Model",
+        "2D Selective Scan",
+        "Efficient Vision Backbone",
+        "Linear Complexity"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "2D选择性扫描（SS2D）通过沿四个方向进行扫描来收集上下文信息，这种方式不仅保留了全局感受野的优点，还避免了自注意力机制中随token数量增加而产生的二次计算复杂度问题。因此，SS2D能够在保持高效的同时，为每个图像块提供丰富的上下文知识。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-022",
+    "question": "在本研究中，用于评估不同算法性能的数据集有哪些特点？这些特点如何影响算法的表现？",
+    "answer": "本研究使用的数据集包含154个3D LGE-MRI图像，是当前全球最大的心脏LGE-MRI数据集之一。由于LGE-MRI图像对比度较低，这给自动分割带来了很大挑战。因此，在这样的数据集上测试算法能够更准确地反映出它们处理低对比度图像的能力，从而帮助研究人员选择更适合实际临床应用的技术方案。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "lge-mri-cardiac-segmentation",
+      "citation_apa": "Xiong, Z., Xia, Q., Hu, Z., Huang, N., Bian, C., Zheng, Y., ... & Zhao, J. (n.d.). A Global Benchmark of Algorithms for Segmenting Late Gadolinium-Enhanced Cardiac Magnetic Resonance Imaging.",
+      "evidence_file": "PartA_知识资产与评测基准/data/lge-mri-cardiac-segmentation/content.txt",
+      "keywords": [
+        "cardiac segmentation",
+        "LGE-MRI",
+        "machine learning",
+        "automatic methods"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "本研究使用的数据集包含154个3D LGE-MRI图像，是当前全球最大的心脏LGE-MRI数据集之一。由于LGE-MRI图像对比度较低，这给自动分割带来了很大挑战。因此，在这样的数据集上测试算法能够更准确地反映出它们处理低对比度图像的能力，从而帮助研究人员选择更适合实际临床应用的...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-023",
+    "question": "在提出的对比学习框架中，如何具体实现正负样本的选择？",
+    "answer": "论文中提到使用了一种基于平均块熵的新颖语义差异映射方法来进行正负样本的选择。这种方法能够更有效地指导对比学习过程中正负样本的采样，从而提高模型的学习效果。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "pseudo-label-contrastive-learning-medical-image-segmentation",
+      "citation_apa": "Basak, H., & Yin, Z. (n.d.). Pseudo-label Guided Contrastive Learning for Semi-supervised Medical Image Segmentation. Retrieved from https://github.com/hbasak/semi-supervised-medical-segmentation",
+      "evidence_file": "PartA_知识资产与评测基准/data/pseudo-label-contrastive-learning-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Semi-supervised Learning",
+        "Contrastive Learning",
+        "Medical Image Segmentation",
+        "Pseudo-labels"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "论文中提到使用了一种基于平均块熵的新颖语义差异映射方法来进行正负样本的选择。这种方法能够更有效地指导对比学习过程中正负样本的采样，从而提高模型的学习效果。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-024",
+    "question": "在提出的半监督医学图像分割框架中，如何具体实现CNN与Transformer之间的交叉教学？",
+    "answer": "在该框架下，首先让一个模型（比如CNN）对未标记的数据进行预测，然后将这些预测结果作为伪标签来指导另一个模型（如Transformer）的学习过程；反之亦然。这样，两个模型可以互相提供反馈信息，从而提高整体性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "semi-supervised-medical-image-segmentation",
+      "citation_apa": "Luo, X., Hu, M., Song, T., Wang, G., & Zhang, S. (2022). Semi-Supervised Medical Image Segmentation via Cross Teaching between CNN and Transformer. Proceedings of Machine Learning Research.",
+      "evidence_file": "PartA_知识资产与评测基准/data/semi-supervised-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Semi-supervised learning",
+        "CNN",
+        "transformer",
+        "cross teaching"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在该框架下，首先让一个模型（比如CNN）对未标记的数据进行预测，然后将这些预测结果作为伪标签来指导另一个模型（如Transformer）的学习过程；反之亦然。这样，两个模型可以互相提供反馈信息，从而提高整体性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-025",
+    "question": "在Deep Co-Training中，如何确保不同视图之间提供的是互补信息而不是冗余信息？",
+    "answer": "为了确保不同视图之间提供的信息是互补而非冗余的，Deep Co-Training采用了对抗样本来促进视图之间的差异性。具体来说，通过生成对抗样本并将其用于训练过程，可以促使各个网络从不同的角度学习特征，从而避免它们收敛到相同的状态，进而保证了视图间的互补性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "deep-co-training-semi-supervised-learning",
+      "citation_apa": "Qiao, S., Shen, W., Zhang, Z., Wang, B., & Yuille, A. (2018). Deep Co-Training for Semi-Supervised Image Recognition. arXiv preprint arXiv:1803.05984.",
+      "evidence_file": "PartA_知识资产与评测基准/data/deep-co-training-semi-supervised-learning/content.txt",
+      "keywords": [
+        "Co-Training",
+        "Deep Networks",
+        "Semi-Supervised Learning",
+        "Adversarial Examples"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "为了确保不同视图之间提供的信息是互补而非冗余的，Deep Co-Training采用了对抗样本来促进视图之间的差异性。具体来说，通过生成对抗样本并将其用于训练过程，可以促使各个网络从不同的角度学习特征，从而避免它们收敛到相同的状态，进而保证了视图间的互补性。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-026",
+    "question": "在这篇论文中，作者们提出了一个大规模的心脏MRI数据集ACDC，请问这个数据集是如何帮助提高心脏结构自动分割与诊断模型性能的？",
+    "answer": "ACDC数据集通过提供大量且多样化的带有精确标注的心脏MRI图像，为训练更鲁棒、泛化能力更强的深度学习模型提供了宝贵资源。这不仅有助于解决因数据不足导致的过拟合问题，还促进了不同算法之间的公平比较，从而推动了整个领域向更加精准的心脏疾病自动诊断方向发展。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-897"
+    },
+    "reference": {
+      "topic": "cardiac-mri-segmentation-diagnosis",
+      "citation_apa": "Bernard, O., Lalande, A., Zotti, C., Cervenansky, F., Yang, X., Heng, P. A., ... & Jodoin, P. M. (n.d.). Deep Learning Techniques for Automatic MRI Cardiac Multi-structures Segmentation and Diagnosis: Is the Problem Solved? Draft version for IEEE TMI Journal.",
+      "evidence_file": "PartA_知识资产与评测基准/data/cardiac-mri-segmentation-diagnosis/content.txt",
+      "keywords": [
+        "Cardiac MRI",
+        "Deep Learning",
+        "Segmentation",
+        "Diagnosis"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "ACDC数据集通过提供大量且多样化的带有精确标注的心脏MRI图像，为训练更鲁棒、泛化能力更强的深度学习模型提供了宝贵资源。这不仅有助于解决因数据不足导致的过拟合问题，还促进了不同算法之间的公平比较，从而推动了整个领域向更加精准的心脏疾病自动诊断方向发展。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-027",
+    "question": "在DCMamba框架中，如何通过不确定性加权对比学习机制来增强特征表示的多样性？",
+    "answer": "在DCMamba框架内，不确定性加权对比学习机制通过对不同样本间特征相似度进行评估，并根据预测不确定性调整权重，从而鼓励模型学习到更加丰富且具有区分性的特征表示。这种方法有助于捕捉更广泛的语义信息，进而提升模型在未见数据上的泛化能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "diversity-enhanced-collaborative-mamba",
+      "citation_apa": "Li, S., Zhang, J., Qi, L., Zhou, L., Shi, Y., & Gao, Y. (n.d.). Diversity-enhanced Collaborative Mamba for Semi-supervised Medical Image Segmentation. Retrieved from https://github.com/ShumengLI/DCMamba",
+      "evidence_file": "PartA_知识资产与评测基准/data/diversity-enhanced-collaborative-mamba/content.txt",
+      "keywords": [
+        "semi-supervised medical image segmentation",
+        "state space model",
+        "diversity-enhanced framework",
+        "contrastive learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在DCMamba框架内，不确定性加权对比学习机制通过对不同样本间特征相似度进行评估，并根据预测不确定性调整权重，从而鼓励模型学习到更加丰富且具有区分性的特征表示。这种方法有助于捕捉更广泛的语义信息，进而提升模型在未见数据上的泛化能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-028",
+    "question": "FixMatch算法如何确保伪标签的质量？它使用了哪些具体策略来提高从无标签数据中学习的效果？",
+    "answer": "FixMatch算法通过仅保留模型对弱增强未标记图像做出的高置信度预测作为伪标签来保证质量。这意味着只有当模型非常确定其预测结果时（即预测概率超过预设阈值），才会将此预测转换为硬标签用于后续训练。此外，通过对同一张图片进行强增强处理，并要求模型在此基础上仍能准确预测之前生成的伪标签，进一步增强了模型的一致性和鲁棒性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "fixmatch-semi-supervised-learning",
+      "citation_apa": "Sohn, K., Berthelot, D., Li, C.-L., Zhang, Z., Carlini, N., Cubuk, E. D., Kurakin, A., Zhang, H., & Raffel, C. (2020). FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence. In 34th Conference on Neural Information Processing Systems (NeurIPS 2020), Vancouver, Canada.",
+      "evidence_file": "PartA_知识资产与评测基准/data/fixmatch-semi-supervised-learning/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Pseudo-Labeling",
+        "Consistency Regularization",
+        "Deep Neural Networks"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "FixMatch算法通过仅保留模型对弱增强未标记图像做出的高置信度预测作为伪标签来保证质量。这意味着只有当模型非常确定其预测结果时（即预测概率超过预设阈值），才会将此预测转换为硬标签用于后续训练。此外，通过对同一张图片进行强增强处理，并要求模型在此基础上仍能准确预测之前生成的伪标...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-029",
+    "question": "在AmbiSSL框架中，多样化伪标签生成（DPG）模块是如何利用随机剪枝技术促进不同解码器之间生成多样化的伪标签集合的？",
+    "answer": "DPG模块通过对原始骨干解码器进行随机剪枝操作创建多个不同的解码器。每个剪枝后的解码器由于结构上的差异，在处理相同输入时会产生略有不同的输出，从而形成一个包含多种可能性的伪标签集合。这种方法有助于模型捕捉到数据中存在的不确定性，并提高最终分割结果的多样性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "annotation-ambiguity-aware-semi-supervised-segmentation",
+      "citation_apa": "Kumari, S., & Singh, P. (n.d.). Annotation Ambiguity Aware Semi-Supervised Medical Image Segmentation. In CVPR.",
+      "evidence_file": "PartA_知识资产与评测基准/data/annotation-ambiguity-aware-semi-supervised-segmentation/content.txt",
+      "keywords": [
+        "medical image segmentation",
+        "semi-supervised learning",
+        "annotation ambiguity",
+        "pseudo-label generation",
+        "latent distribution learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "DPG模块通过对原始骨干解码器进行随机剪枝操作创建多个不同的解码器。每个剪枝后的解码器由于结构上的差异，在处理相同输入时会产生略有不同的输出，从而形成一个包含多种可能性的伪标签集合。这种方法有助于模型捕捉到数据中存在的不确定性，并提高最终分割结果的多样性。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-030",
+    "question": "Mamba模型如何通过选择性状态空间(SSMs)实现对长序列的有效处理？其与传统的Transformer相比，在处理机制上有何不同？",
+    "answer": "Mamba模型通过将SSM参数设为输入的函数，使得模型能够根据当前token有选择地沿序列长度维度传播或遗忘信息，从而解决了传统SSMs在离散模态上的弱点。此外，尽管这种改变阻碍了高效卷积的应用，但研究者们设计了一种硬件感知的并行算法，在循环模式下运行。这使得Mamba能够在保持线性时间复杂度的同时，有效处理非常长的序列。相比之下，传统的Transformer依赖于自注意力机制来密集地在上下文窗口内路由信息，虽然强大但也带来了二次方的时间复杂度问题。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "mamba-linear-time-sequence-modeling",
+      "citation_apa": "Gu, A., & Dao, T. (n.d.). Mamba: Linear-Time Sequence Modeling with Selective State Spaces.",
+      "evidence_file": "PartA_知识资产与评测基准/data/mamba-linear-time-sequence-modeling/content.txt",
+      "keywords": [
+        "Transformers",
+        "Linear-Time Sequence Modeling",
+        "Selective State Spaces",
+        "Content-Based Reasoning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Mamba模型通过将SSM参数设为输入的函数，使得模型能够根据当前token有选择地沿序列长度维度传播或遗忘信息，从而解决了传统SSMs在离散模态上的弱点。此外，尽管这种改变阻碍了高效卷积的应用，但研究者们设计了一种硬件感知的并行算法，在循环模式下运行。这使得Mamba能够在保持...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-031",
+    "question": "在Mean Teacher方法中，为什么选择平均模型权重而不是直接平均标签预测？这种方法如何帮助减少过拟合并提高模型性能？",
+    "answer": "选择平均模型权重而非直接平均标签预测的原因在于，前者能够提供更加稳定且平滑的目标输出，从而有助于模型更好地泛化到未见过的数据上。通过这种方式，即使是在仅有少量标注样本的情况下，也能有效利用大量无标签数据来指导模型训练过程，进而减少过拟合并提升整体性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "mean-teacher-semi-supervised-learning",
+      "citation_apa": "Tarvainen, A., & Valpola, H. (2018). Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. arXiv preprint arXiv:1703.01780.",
+      "evidence_file": "PartA_知识资产与评测基准/data/mean-teacher-semi-supervised-learning/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Mean Teacher",
+        "Temporal Ensembling",
+        "Deep Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "选择平均模型权重而非直接平均标签预测的原因在于，前者能够提供更加稳定且平滑的目标输出，从而有助于模型更好地泛化到未见过的数据上。通过这种方式，即使是在仅有少量标注样本的情况下，也能有效利用大量无标签数据来指导模型训练过程，进而减少过拟合并提升整体性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-032",
+    "question": "MetaSSL如何通过不确定性与一致性信息来区分不同类型的未标注像素，并为其分配不同的权重？",
+    "answer": "MetaSSL根据参考预测和监督预测之间的不确定性和一致性信息，将未标注数据上的预测分为四个区域：一致且置信（UC）、一致但可疑（US）、不一致但置信（DC）以及不一致且可疑（DS）。通过自适应阈值区分置信预测与可疑预测，并据此为每个区域内的像素分配不同的权重，以此实现对不同类型未标注像素的有效处理。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "meta-ssl-semi-supervised-segmentation",
+      "citation_apa": "Zhao, W., Zhong, L., Liao, X., Liao, W., Zhang, S., Zhang, S., & Wang, G. (2025). MetaSSL: A General Heterogeneous Loss for Semi-Supervised Medical Image Segmentation. IEEE Transactions on Medical Imaging.",
+      "evidence_file": "PartA_知识资产与评测基准/data/meta-ssl-semi-supervised-segmentation/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Medical Image Segmentation",
+        "Heterogeneous Loss",
+        "Noise-Robust Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MetaSSL根据参考预测和监督预测之间的不确定性和一致性信息，将未标注数据上的预测分为四个区域：一致且置信（UC）、一致但可疑（US）、不一致但置信（DC）以及不一致且可疑（DS）。通过自适应阈值区分置信预测与可疑预测，并据此为每个区域内的像素分配不同的权重，以此实现对不同类型...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-033",
+    "question": "MixMatch算法如何处理未标记的数据以生成可靠的伪标签？",
+    "answer": "MixMatch通过多次随机增强未标记样本，并使用分类器预测每个增强版本的类别分布。然后，它计算这些预测的平均值，并通过调整温度参数来锐化这个平均分布，从而得到一个更集中、更可靠的伪标签。这种方法有助于提高模型在未标记数据上的泛化能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "mixmatch-semi-supervised-learning",
+      "citation_apa": "Berthelot, D., Carlini, N., Goodfellow, I., Oliver, A., Papernot, N., & Raffel, C. (2019). MixMatch: A Holistic Approach to Semi-Supervised Learning. 33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada.",
+      "evidence_file": "PartA_知识资产与评测基准/data/mixmatch-semi-supervised-learning/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "MixMatch",
+        "Data Augmentation",
+        "Label Guessing"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MixMatch通过多次随机增强未标记样本，并使用分类器预测每个增强版本的类别分布。然后，它计算这些预测的平均值，并通过调整温度参数来锐化这个平均分布，从而得到一个更集中、更可靠的伪标签。这种方法有助于提高模型在未标记数据上的泛化能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-034",
+    "question": "在本研究中，作者如何解决使用伪标签时可能出现的确认偏差问题？",
+    "answer": "为了解决伪标签过程中可能出现的确认偏差问题，作者采用了两种主要策略：一是引入mixup数据增强技术，这有助于提高模型对不同输入变化的鲁棒性；二是设定每个小批量训练样本中至少包含一定数量的已标注样本，以此确保模型不会过度依赖于可能错误的伪标签进行学习。这些措施共同作用下有效地减少了确认偏差的影响。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "pseudo-labeling-semi-supervised-learning",
+      "citation_apa": "Arazo, E., Ortego, D., Albert, P., O’Connor, N. E., & McGuinness, K. (n.d.). Pseudo-Labeling and Confirmation Bias in Deep Semi-Supervised Learning. Retrieved from https://git.io/fjQsC",
+      "evidence_file": "PartA_知识资产与评测基准/data/pseudo-labeling-semi-supervised-learning/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Pseudo-Labeling",
+        "Confirmation Bias",
+        "Deep Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "为了解决伪标签过程中可能出现的确认偏差问题，作者采用了两种主要策略：一是引入mixup数据增强技术，这有助于提高模型对不同输入变化的鲁棒性；二是设定每个小批量训练样本中至少包含一定数量的已标注样本，以此确保模型不会过度依赖于可能错误的伪标签进行学习。这些措施共同作用下有效地减少了...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-035",
+    "question": "SegMamba如何通过结合U形结构与Mamba技术来提高对3D医学图像中长距离依赖性的建模能力？",
+    "answer": "SegMamba利用U形网络架构作为基础框架，并在其核心部分引入了Mamba层，后者是一种源自状态空间模型的技术，特别擅长于高效地处理序列数据中的长距离依赖性。这种组合使得SegMamba能够在保持计算效率的同时，有效地捕捉到整个体积特征内的全局信息，从而提高了对于复杂3D医学图像的分割精度。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "segmamba-3d-medical-image-segmentation",
+      "citation_apa": "Xing, Z., Ye, T., Yang, Y., Liu, G., & Zhu, L. (2024). SegMamba: Long-range Sequential Modeling Mamba For 3D Medical Image Segmentation. arXiv preprint arXiv:2401.13560v4.",
+      "evidence_file": "PartA_知识资产与评测基准/data/segmamba-3d-medical-image-segmentation/content.txt",
+      "keywords": [
+        "State space model",
+        "Mamba",
+        "Long-range sequential modeling",
+        "3D medical image segmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "SegMamba利用U形网络架构作为基础框架，并在其核心部分引入了Mamba层，后者是一种源自状态空间模型的技术，特别擅长于高效地处理序列数据中的长距离依赖性。这种组合使得SegMamba能够在保持计算效率的同时，有效地捕捉到整个体积特征内的全局信息，从而提高了对于复杂3D医学图...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-036",
+    "question": "Swin UNETR模型中使用的自监督学习代理任务有哪些？这些任务是如何帮助模型更好地理解3D医学图像中的上下文信息的？",
+    "answer": "Swin UNETR模型采用了包括掩码体积修复、对比学习和旋转预测在内的自监督学习代理任务。这些任务通过强制模型从部分损坏或变换后的输入中恢复原始信息，促进了对图像内部结构及全局上下文的理解，从而增强了模型对于3D医学图像特征的学习能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "swin-unetr-self-supervised-pretraining",
+      "citation_apa": "Tang, Y., Yang, D., Li, W., Roth, H. R., Landman, B., Xu, D., ... & Hatamizadeh, A. (2022). Self-Supervised Pre-Training of Swin Transformers for 3D Medical Image Analysis. arXiv preprint arXiv:2111.14791v2.",
+      "evidence_file": "PartA_知识资产与评测基准/data/swin-unetr-self-supervised-pretraining/content.txt",
+      "keywords": [
+        "Self-Supervised Learning",
+        "Swin Transformers",
+        "3D Medical Image Analysis",
+        "Pre-Training"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Swin UNETR模型采用了包括掩码体积修复、对比学习和旋转预测在内的自监督学习代理任务。这些任务通过强制模型从部分损坏或变换后的输入中恢复原始信息，促进了对图像内部结构及全局上下文的理解，从而增强了模型对于3D医学图像特征的学习能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-037",
+    "question": "在Semi-Mamba-UNet中，如何实现像素级别的对比学习？这对模型处理未标记数据有何帮助？",
+    "answer": "Semi-Mamba-UNet采用了一对投影器来实施像素级别的对比学习策略，这有助于模型从正负样本对中学习到更加鲁棒的特征表示，尤其是在缺乏标签信息的情况下，能够有效提升模型对于未标记数据的理解能力和泛化性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "semi-mamba-unet-segmentation",
+      "citation_apa": "Ma, C., & Wang, Z. (2024). Semi-Mamba-UNet: Pixel-Level Contrastive and Pixel-Level Cross-Supervised Visual Mamba-based UNet for Semi-Supervised Medical Image Segmentation. arXiv preprint arXiv:2402.07245v3.",
+      "evidence_file": "PartA_知识资产与评测基准/data/semi-mamba-unet-segmentation/content.txt",
+      "keywords": [
+        "Visual Mamba",
+        "UNet",
+        "Semi-supervised Learning",
+        "Contrastive Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Semi-Mamba-UNet采用了一对投影器来实施像素级别的对比学习策略，这有助于模型从正负样本对中学习到更加鲁棒的特征表示，尤其是在缺乏标签信息的情况下，能够有效提升模型对于未标记数据的理解能力和泛化性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-038",
+    "question": "在这篇论文中，作者是如何实现双任务一致性正则化的？这种机制如何帮助提高模型在未标注数据上的表现？",
+    "answer": "作者通过设计一个能够同时输出像素级分割图和基于水平集的目标表示的双任务网络实现了双任务一致性正则化。具体来说，他们首先使用一个可微分的任务转换层将水平集表示转换成近似的分割图，然后对这个由水平集生成的分割图与直接预测得到的分割图之间的差异进行约束，以此作为正则项加入到损失函数中。这种方法鼓励模型即使面对未标注的数据也能保持两个任务输出之间的一致性，从而有效利用大量未标注样本提升整体分割精度。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "semi-supervised-dual-task-consistency-segmentation",
+      "citation_apa": "Luo, X., Chen, J., Song, T., & Wang, G. (2021). Semi-supervised medical image segmentation through dual-task consistency. *Proceedings of the AAAI Conference on Artificial Intelligence*, 35(17), 14869-14877.",
+      "evidence_file": "PartA_知识资产与评测基准/data/semi-supervised-dual-task-consistency-segmentation/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Medical Image Segmentation",
+        "Dual-Task Consistency",
+        "Level Set Representation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者通过设计一个能够同时输出像素级分割图和基于水平集的目标表示的双任务网络实现了双任务一致性正则化。具体来说，他们首先使用一个可微分的任务转换层将水平集表示转换成近似的分割图，然后对这个由水平集生成的分割图与直接预测得到的分割图之间的差异进行约束，以此作为正则项加入到损失函数中。...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-039",
+    "question": "在提出的交叉伪监督方法中，如何确保由不同初始化的两个网络生成的伪标签能够有效地提高模型性能？",
+    "answer": "交叉伪监督方法通过强制要求两个以不同方式初始化的分割网络对于相同输入图像产生一致性的预测结果来实现这一点。随着训练过程的推进，这些伪标签逐渐变得更加准确且稳定，进而为另一个网络提供了额外的有效监督信号，促进了模型学习到更鲁棒的特征表示，最终提高了整体性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "cross-pseudo-supervision-segmentation",
+      "citation_apa": "Chen, X., Yuan, Y., Zeng, G., & Wang, J. (n.d.). Semi-Supervised Semantic Segmentation with Cross Pseudo Supervision. Retrieved from https://git.io/CPS",
+      "evidence_file": "PartA_知识资产与评测基准/data/cross-pseudo-supervision-segmentation/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Semantic Segmentation",
+        "Consistency Regularization",
+        "Cross Pseudo Supervision"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "交叉伪监督方法通过强制要求两个以不同方式初始化的分割网络对于相同输入图像产生一致性的预测结果来实现这一点。随着训练过程的推进，这些伪标签逐渐变得更加准确且稳定，进而为另一个网络提供了额外的有效监督信号，促进了模型学习到更鲁棒的特征表示，最终提高了整体性能。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-040",
+    "question": "在提出的形状感知半监督分割框架中，如何通过符号距离图(SDM)和对抗损失共同作用来提高模型对未标记数据的学习效果？",
+    "answer": "该框架通过同时预测每个样本的语义分割结果及其对应的符号距离图(SDM)，其中SDM能够提供关于目标边界位置的信息。此外，通过在已标记与未标记样本之间引入对抗损失，促使网络学习到更鲁棒且具有形状意识的特征表示，即使对于缺乏直接监督信号的数据也能生成较为准确的分割结果。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "shape-aware-semi-supervised-3d-semantic-segmentation",
+      "citation_apa": "Li, S., Zhang, C., & He, X. (2020). Shape-aware semi-supervised 3D semantic segmentation for medical images. arXiv preprint arXiv:2007.10732.",
+      "evidence_file": "PartA_知识资产与评测基准/data/shape-aware-semi-supervised-3d-semantic-segmentation/content.txt",
+      "keywords": [
+        "Geometric constraints",
+        "Semantic segmentation",
+        "Semi-supervised learning",
+        "Signed distance map"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "该框架通过同时预测每个样本的语义分割结果及其对应的符号距离图(SDM)，其中SDM能够提供关于目标边界位置的信息。此外，通过在已标记与未标记样本之间引入对抗损失，促使网络学习到更鲁棒且具有形状意识的特征表示，即使对于缺乏直接监督信号的数据也能生成较为准确的分割结果。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-041",
+    "question": "在SNTG方法中，如何通过构建基于教师模型预测的图结构来改进半监督学习的效果？",
+    "answer": "SNTG方法首先基于教师模型（即多个模型的隐式集成）对数据进行预测，然后根据这些预测结果构建一个图结构。这个图结构反映了数据样本之间的相似性关系。接着，SNTG利用这个图作为相似性度量，促使“相似”的邻近点在低维流形上的表示更加平滑。这种方法不仅考虑了单个数据点周围的扰动，还充分利用了无标签数据间的连接信息，从而提高了半监督学习的整体性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "smooth-neighbors-teacher-graphs-semi-supervised-learning",
+      "citation_apa": "Luo, Y., Zhu, J., Li, M., Ren, Y., & Zhang, B. (n.d.). Smooth Neighbors on Teacher Graphs for Semi-supervised Learning. Retrieved from [未提供具体年份]",
+      "evidence_file": "PartA_知识资产与评测基准/data/smooth-neighbors-teacher-graphs-semi-supervised-learning/content.txt",
+      "keywords": [
+        "semi-supervised learning",
+        "self-ensembling methods",
+        "perturbation regularization",
+        "graph-based similarity"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "SNTG方法首先基于教师模型（即多个模型的隐式集成）对数据进行预测，然后根据这些预测结果构建一个图结构。这个图结构反映了数据样本之间的相似性关系。接着，SNTG利用这个图作为相似性度量，促使“相似”的邻近点在低维流形上的表示更加平滑。这种方法不仅考虑了单个数据点周围的扰动，还充分...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-042",
+    "question": "U-Mamba如何通过结合卷积层与状态空间序列模型来有效提升对长距离依赖性的处理？",
+    "answer": "U-Mamba设计了一个混合的CNN-SSM块，其中卷积层负责从输入图像中提取局部特征，而状态空间序列模型则专注于建模这些特征之间的长距离依赖性。这种组合不仅保留了卷积操作在捕获局部信息方面的优势，还利用了SSMs在处理序列数据时展现的强大全局理解能力，从而使得整个架构能够更有效地学习到跨越较远区域的信息关联。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "u-mamba-biomedical-image-segmentation",
+      "citation_apa": "Ma, J., Li, F., & Wang, B. (2024). U-Mamba: Enhancing Long-range Dependency for Biomedical Image Segmentation. arXiv preprint arXiv:2401.04722.",
+      "evidence_file": "PartA_知识资产与评测基准/data/u-mamba-biomedical-image-segmentation/content.txt",
+      "keywords": [
+        "Image Segmentation",
+        "Backbone Network",
+        "State Space Models",
+        "Transformer"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "U-Mamba设计了一个混合的CNN-SSM块，其中卷积层负责从输入图像中提取局部特征，而状态空间序列模型则专注于建模这些特征之间的长距离依赖性。这种组合不仅保留了卷积操作在捕获局部信息方面的优势，还利用了SSMs在处理序列数据时展现的强大全局理解能力，从而使得整个架构能够更有效...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-043",
+    "question": "U-Net如何通过其独特的架构设计来解决小样本学习问题？",
+    "answer": "U-Net通过采用深度卷积神经网络结构，结合了能够捕捉全局上下文信息的编码器部分（即收缩路径）和专注于恢复空间细节信息的解码器部分（即扩展路径）。此外，它还充分利用了数据增强技术以增加训练样本多样性，从而有效缓解了小样本学习中的过拟合风险，使得模型能够在仅有少量标注数据的情况下仍能获得良好的性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-893"
+    },
+    "reference": {
+      "topic": "u-net-biomedical-image-segmentation",
+      "citation_apa": "Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. arXiv preprint arXiv:1505.04597.",
+      "evidence_file": "PartA_知识资产与评测基准/data/u-net-biomedical-image-segmentation/content.txt",
+      "keywords": [
+        "U-Net",
+        "biomedical image segmentation",
+        "data augmentation",
+        "convolutional networks"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "U-Net通过采用深度卷积神经网络结构，结合了能够捕捉全局上下文信息的编码器部分（即收缩路径）和专注于恢复空间细节信息的解码器部分（即扩展路径）。此外，它还充分利用了数据增强技术以增加训练样本多样性，从而有效缓解了小样本学习中的过拟合风险，使得模型能够在仅有少量标注数据的情况下仍...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-044",
+    "question": "在这篇论文中，作者是如何利用不确定性信息来改进学生模型的学习过程的？",
+    "answer": "作者设计了一个不确定性感知方案，使得学生模型能够逐渐从有意义且可靠的教师模型目标中学习。具体来说，通过利用不确定性信息，学生模型可以更加专注于那些预测较为确定、更可靠的区域进行学习，从而避免了被不可靠或无意义的目标所误导，提高了整体的学习效率和准确性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-856"
+    },
+    "reference": {
+      "topic": "uncertainty-aware-self-ensembling-left-atrium-segmentation",
+      "citation_apa": "Yu, L., Wang, S., Li, X., Fu, C.-W., & Heng, P.-A. (2019). Uncertainty-aware self-ensembling model for semi-supervised 3D left atrium segmentation. arXiv preprint arXiv:1907.07034.",
+      "evidence_file": "PartA_知识资产与评测基准/data/uncertainty-aware-self-ensembling-left-atrium-segmentation/content.txt",
+      "keywords": [
+        "Semi-supervised learning",
+        "Uncertainty estimation",
+        "Self-ensembling",
+        "Segmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "作者设计了一个不确定性感知方案，使得学生模型能够逐渐从有意义且可靠的教师模型目标中学习。具体来说，通过利用不确定性信息，学生模型可以更加专注于那些预测较为确定、更可靠的区域进行学习，从而避免了被不可靠或无意义的目标所误导，提高了整体的学习效率和准确性。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-045",
+    "question": "V-Net中提出的基于Dice系数的损失函数是如何帮助解决前景与背景体素数量不平衡问题的？",
+    "answer": "V-Net采用基于Dice系数的损失函数来优化模型训练过程。Dice系数是一种用于评估两个样本之间相似度的统计指标，在这里用来衡量预测分割结果与真实标签之间的重叠程度。相比于传统的交叉熵损失，Dice损失更侧重于提高正样本（即前景）的召回率，因此即使在前景和背景体素数量极度不平衡的情况下也能有效提升模型对小目标或稀疏目标的识别能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "v-net-3d-medical-image-segmentation",
+      "citation_apa": "Milletari, F., Navab, N., & Ahmadi, S. A. (2016). V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation. arXiv preprint arXiv:1606.04797.",
+      "evidence_file": "PartA_知识资产与评测基准/data/v-net-3d-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Convolutional Neural Networks",
+        "3D Medical Image Segmentation",
+        "V-Net",
+        "Data Augmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "V-Net采用基于Dice系数的损失函数来优化模型训练过程。Dice系数是一种用于评估两个样本之间相似度的统计指标，在这里用来衡量预测分割结果与真实标签之间的重叠程度。相比于传统的交叉熵损失，Dice损失更侧重于提高正样本（即前景）的召回率，因此即使在前景和背景体素数量极度不平衡...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-046",
+    "question": "在提出的MCF框架中，对比差异回顾(CDR)模块是如何帮助减少模型对边缘区域的误判？",
+    "answer": "CDR模块通过比较两个子网络在同一输入下的预测结果，找出两者之间存在显著差异的区域，这些区域往往对应着模型可能存在的误判。随后，通过对这些区域实施额外的审查训练过程，促使模型重新学习这些难例，从而有效减少了模型对于边缘等复杂区域的错误预测。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "mutual-correction-framework-for-ssmis",
+      "citation_apa": "Wang, Y., Xiao, B., Bi, X., Li, W., & Gao, X. (n.d.). MCF: Mutual Correction Framework for Semi-Supervised Medical Image Segmentation. In CVPR.",
+      "evidence_file": "PartA_知识资产与评测基准/data/mutual-correction-framework-for-ssmis/content.txt",
+      "keywords": [
+        "Semi-Supervised Learning",
+        "Medical Image Segmentation",
+        "Cognitive Bias Correction",
+        "Mutual Correction Framework"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "CDR模块通过比较两个子网络在同一输入下的预测结果，找出两者之间存在显著差异的区域，这些区域往往对应着模型可能存在的误判。随后，通过对这些区域实施额外的审查训练过程，促使模型重新学习这些难例，从而有效减少了模型对于边缘等复杂区域的错误预测。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-047",
+    "question": "SKCDF框架如何利用语义知识互补模块来改善伪标签的质量？",
+    "answer": "SKCDF框架中的语义知识互补模块通过使用已标注的数据指导伪标签的生成，并结合未标注数据来丰富已标注数据的语义特征，从而提高了伪标签的质量。这种方法不仅增强了模型的整体鲁棒性，还有效缓解了由于错误或低质量伪标签导致的性能下降问题。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "semantic-knowledge-complementarity-decoupling-framework",
+      "citation_apa": "Zhang, Z., Yin, G., Zhang, B., Liu, W., Zhou, X., & Wang, W. (n.d.). A Semantic Knowledge Complementarity based Decoupling Framework for Semi-supervised Class-imbalanced Medical Image Segmentation. Retrieved from https://github.com/yinguanchun/SKCDF",
+      "evidence_file": "PartA_知识资产与评测基准/data/semantic-knowledge-complementarity-decoupling-framework/content.txt",
+      "keywords": [
+        "Semi-supervised Learning",
+        "Medical Image Segmentation",
+        "Class-Imbalance",
+        "Semantic Knowledge Complementarity"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "SKCDF框架中的语义知识互补模块通过使用已标注的数据指导伪标签的生成，并结合未标注数据来丰富已标注数据的语义特征，从而提高了伪标签的质量。这种方法不仅增强了模型的整体鲁棒性，还有效缓解了由于错误或低质量伪标签导致的性能下降问题。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-048",
+    "question": "在这篇论文中提到的基于深度学习的医学影像分割算法里，有哪些常见的损失函数被用来提高分割精度？",
+    "answer": "在基于深度学习的医学影像分割算法中，为了提高分割精度，通常会采用多种损失函数，包括但不限于交叉熵损失、Dice损失以及它们的变体如加权交叉熵损失或广义Dice损失。这些损失函数能够更好地处理类别不平衡问题，并且对于边缘模糊的目标区域具有更强的鲁棒性。此外，一些研究还引入了边界感知损失来进一步增强模型对目标边界的识别能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "deep-learning-medical-image-segmentation",
+      "citation_apa": "Cao, Y., Xu, H., Liu, S., Wang, Z., & Li, H. (2021). Review of deep learning-based medical image segmentation. Journal of Computer Applications, 41(8), 2273-2287. https://doi.org/10.11772/j.issn.1001-9081.2020101638",
+      "evidence_file": "PartA_知识资产与评测基准/data/deep-learning-medical-image-segmentation/content.txt",
+      "keywords": [
+        "medical image segmentation",
+        "deep learning",
+        "Convolutional Neural Network (CNN)",
+        "semi-supervised learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在基于深度学习的医学影像分割算法中，为了提高分割精度，通常会采用多种损失函数，包括但不限于交叉熵损失、Dice损失以及它们的变体如加权交叉熵损失或广义Dice损失。这些损失函数能够更好地处理类别不平衡问题，并且对于边缘模糊的目标区域具有更强的鲁棒性。此外，一些研究还引入了边界感知...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-049",
+    "question": "注意力门是如何被设计来提高U-Net在医学图像分割任务中的性能的？它具体通过哪些机制实现了对不相关区域的抑制以及对关键特征的增强？",
+    "answer": "注意力门通过自适应地调整特征图上每个位置的重要性权重，使得网络能够更加关注于与当前任务相关的区域。这种机制允许模型在训练过程中学会忽略那些对于最终输出贡献较小的部分，同时放大那些有助于准确识别目标结构的信息。因此，在进行如胰腺分割这样的复杂任务时，即使面对形状大小变化较大的目标对象，也能有效提高分割精度。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "attention-unet-pancreas-segmentation",
+      "citation_apa": "Oktay, O., Schlemper, J., Le Folgoc, L., Lee, M., Heinrich, M., Misawa, K., ... & Rueckert, D. (2018). Attention U-Net: Learning Where to Look for the Pancreas. arXiv preprint arXiv:1804.03999.",
+      "evidence_file": "PartA_知识资产与评测基准/data/attention-unet-pancreas-segmentation/content.txt",
+      "keywords": [
+        "attention gate",
+        "medical imaging",
+        "U-Net",
+        "CT abdominal segmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "注意力门通过自适应地调整特征图上每个位置的重要性权重，使得网络能够更加关注于与当前任务相关的区域。这种机制允许模型在训练过程中学会忽略那些对于最终输出贡献较小的部分，同时放大那些有助于准确识别目标结构的信息。因此，在进行如胰腺分割这样的复杂任务时，即使面对形状大小变化较大的目标对...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-050",
+    "question": "在本研究中，作者是如何解决不同层次特征融合的问题以提高语义分割精度的？",
+    "answer": "为了提高语义分割的准确性，作者设计了一种新的架构，它结合了深层粗略层提供的语义信息与浅层精细层提供的外观信息。这种多层次特征融合的方法有助于同时捕捉全局上下文和局部细节，从而生成更加精确和详细的分割结果。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "fully-convolutional-networks-semantic-segmentation",
+      "citation_apa": "Long, J., Shelhamer, E., & Darrell, T. (2015). Fully convolutional networks for semantic segmentation. arXiv preprint arXiv:1411.4038.",
+      "evidence_file": "PartA_知识资产与评测基准/data/fully-convolutional-networks-semantic-segmentation/content.txt",
+      "keywords": [
+        "Fully Convolutional Networks",
+        "Semantic Segmentation",
+        "End-to-End Training",
+        "Pixelwise Prediction"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "为了提高语义分割的准确性，作者设计了一种新的架构，它结合了深层粗略层提供的语义信息与浅层精细层提供的外观信息。这种多层次特征融合的方法有助于同时捕捉全局上下文和局部细节，从而生成更加精确和详细的分割结果。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-051",
+    "question": "为什么在本研究中选择使用75%的高比例遮挡来作为自监督任务？这种设置如何影响模型的学习效率与效果？",
+    "answer": "选择75%的高比例遮挡是为了给模型提供一个既具有挑战性又可实现的任务目标，促使模型学会捕捉更深层次的图像特征而非依赖于局部信息。这样的设置不仅加速了训练过程（相比其他方法快3倍以上），还提高了模型的准确性及泛化能力，使得即使面对大规模数据集也能保持良好的性能表现。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-234"
+    },
+    "reference": {
+      "topic": "masked-autoencoders-vision-learning",
+      "citation_apa": "He, K., Chen, X., Xie, S., Li, Y., Dollár, P., & Girshick, R. (n.d.). Masked autoencoders are scalable vision learners. Retrieved from Facebook AI Research (FAIR).",
+      "evidence_file": "PartA_知识资产与评测基准/data/masked-autoencoders-vision-learning/content.txt",
+      "keywords": [
+        "Masked Autoencoders",
+        "Self-Supervised Learning",
+        "Computer Vision",
+        "Vision Transformers"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "选择75%的高比例遮挡是为了给模型提供一个既具有挑战性又可实现的任务目标，促使模型学会捕捉更深层次的图像特征而非依赖于局部信息。这样的设置不仅加速了训练过程（相比其他方法快3倍以上），还提高了模型的准确性及泛化能力，使得即使面对大规模数据集也能保持良好的性能表现。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-052",
+    "question": "MedSAM模型是如何实现对多种成像模态和疾病类型的广泛适应性的？其背后的机制是什么？",
+    "answer": "MedSAM模型通过在一个大规模、多样化的医学图像数据集上进行训练来实现广泛的适应性，该数据集包含了10种不同的成像模态以及超过30种癌症类型。这种多样化的训练使得模型能够学习到不同模态和疾病类型之间的共通特征，从而提高了它在面对未见过的任务时的表现能力。此外，MedSAM的设计考虑到了基础模型的特点，即能够在一次训练后应用于多种任务，这进一步增强了它的泛化性能。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "medsam-medical-image-segmentation",
+      "citation_apa": "Ma, J., He, Y., Li, F., Han, L., You, C., & Wang, B. (2024). Segment Anything in Medical Images. arXiv preprint arXiv:2304.12306v3.",
+      "evidence_file": "PartA_知识资产与评测基准/data/medsam-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "Foundation Model",
+        "Generalizability",
+        "Deep Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MedSAM模型通过在一个大规模、多样化的医学图像数据集上进行训练来实现广泛的适应性，该数据集包含了10种不同的成像模态以及超过30种癌症类型。这种多样化的训练使得模型能够学习到不同模态和疾病类型之间的共通特征，从而提高了它在面对未见过的任务时的表现能力。此外，MedSAM的设计...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-053",
+    "question": "MedSAM模型如何实现对多种成像模态及疾病类型的广泛适应性？其背后的关键技术是什么？",
+    "answer": "MedSAM通过在一个大规模且多样化的医学图像数据集上进行训练来实现广泛的适应性，该数据集涵盖了多种成像技术和大量的病例类型。关键技术包括使用先进的深度学习架构以捕捉复杂的图像特征，并采用有效的训练策略确保模型能够从不同来源的数据中学习到通用的表示方法，从而提高其跨任务表现的一致性和准确性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "medsam-medical-image-segmentation",
+      "citation_apa": "Ma, J., He, Y., Li, F., Han, L., You, C., & Wang, B. (2024). Segment Anything in Medical Images. arXiv preprint arXiv:2304.12306v3.",
+      "evidence_file": "PartA_知识资产与评测基准/data/medsam-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "Foundation Model",
+        "Generalizability",
+        "Deep Learning"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MedSAM通过在一个大规模且多样化的医学图像数据集上进行训练来实现广泛的适应性，该数据集涵盖了多种成像技术和大量的病例类型。关键技术包括使用先进的深度学习架构以捕捉复杂的图像特征，并采用有效的训练策略确保模型能够从不同来源的数据中学习到通用的表示方法，从而提高其跨任务表现的一致...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-054",
+    "question": "残差网络是如何解决深度增加导致的梯度消失/爆炸问题以及模型退化问题的？",
+    "answer": "残差网络通过引入跨层连接（即所谓的“跳跃连接”），允许信息直接从一层传递到另一层而不经过中间层的非线性变换，从而缓解了梯度消失或爆炸问题。此外，这种设计还帮助解决了随着网络加深而出现的模型退化现象，即使得更深的网络能够保持甚至优于较浅网络的表现。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "residual-networks-for-deep-learning",
+      "citation_apa": "He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).",
+      "evidence_file": "PartA_知识资产与评测基准/data/residual-networks-for-deep-learning/content.txt",
+      "keywords": [
+        "Deep Learning",
+        "Residual Networks",
+        "Image Recognition",
+        "Network Depth"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "残差网络通过引入跨层连接（即所谓的“跳跃连接”），允许信息直接从一层传递到另一层而不经过中间层的非线性变换，从而缓解了梯度消失或爆炸问题。此外，这种设计还帮助解决了随着网络加深而出现的模型退化现象，即使得更深的网络能够保持甚至优于较浅网络的表现。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-055",
+    "question": "Segment Anything Model (SAM)是如何设计以支持零样本迁移能力的？",
+    "answer": "SAM的设计理念是使其成为一个可提示的模型，这意味着它能够根据不同的提示信息生成相应的分割结果。这种设计使得SAM不仅能在训练时见过的数据上表现良好，还能很好地适应未见过的新数据分布和任务，从而实现强大的零样本迁移能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "segment-anything-model",
+      "citation_apa": "Kirillov, A., Mintun, E., Ravi, N., Mao, H., Rolland, C., Gustafson, L., ... & Dollár, P. (2023). Segment Anything. arXiv preprint arXiv:2304.02643.",
+      "evidence_file": "PartA_知识资产与评测基准/data/segment-anything-model/content.txt",
+      "keywords": [
+        "image segmentation",
+        "foundation model",
+        "promptable model",
+        "zero-shot transfer"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "SAM的设计理念是使其成为一个可提示的模型，这意味着它能够根据不同的提示信息生成相应的分割结果。这种设计使得SAM不仅能在训练时见过的数据上表现良好，还能很好地适应未见过的新数据分布和任务，从而实现强大的零样本迁移能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-056",
+    "question": "TransUNet如何解决传统U-Net在处理长距离依赖关系时遇到的问题？",
+    "answer": "TransUNet通过引入Transformer作为编码器，利用其全局自注意力机制来捕捉图像中的长距离依赖关系，弥补了U-Net由于卷积操作固有的局部性而难以有效建模远距离信息的不足。同时，为了保持对细节的良好恢复能力，TransUNet还保留了U-Net结构中的跳跃连接设计，使得模型能够同时具备全局上下文理解和局部细节保留的能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "transunet-medical-image-segmentation",
+      "citation_apa": "Chen, J., Lu, Y., Yu, Q., Luo, X., Adeli, E., Wang, Y., ... & Zhou, Y. (2021). TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation. arXiv preprint arXiv:2102.04306.",
+      "evidence_file": "PartA_知识资产与评测基准/data/transunet-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Medical Image Segmentation",
+        "Transformer",
+        "U-Net",
+        "Global Context"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "TransUNet通过引入Transformer作为编码器，利用其全局自注意力机制来捕捉图像中的长距离依赖关系，弥补了U-Net由于卷积操作固有的局部性而难以有效建模远距离信息的不足。同时，为了保持对细节的良好恢复能力，TransUNet还保留了U-Net结构中的跳跃连接设计，使...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-057",
+    "question": "U-Net如何利用数据增强来提高模型性能？",
+    "answer": "U-Net通过实施一系列的数据增强技术，如旋转、缩放和平移等变换，增加了训练集的有效规模，从而使得即使只有少量标注样本也能训练出高性能的模型。这种方法有助于减少过拟合风险，并提高了模型对于未见数据的泛化能力。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "u-net-biomedical-image-segmentation",
+      "citation_apa": "Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. arXiv preprint arXiv:1505.04597.",
+      "evidence_file": "PartA_知识资产与评测基准/data/u-net-biomedical-image-segmentation/content.txt",
+      "keywords": [
+        "U-Net",
+        "biomedical image segmentation",
+        "data augmentation",
+        "convolutional networks"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "U-Net通过实施一系列的数据增强技术，如旋转、缩放和平移等变换，增加了训练集的有效规模，从而使得即使只有少量标注样本也能训练出高性能的模型。这种方法有助于减少过拟合风险，并提高了模型对于未见数据的泛化能力。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-058",
+    "question": "UTNet如何解决传统卷积神经网络在处理医学图像时存在的局限性？",
+    "answer": "UTNet通过结合自注意力机制与卷积操作，克服了传统卷积神经网络仅能从邻近像素获取信息而难以捕捉全局依赖性的缺点。此外，它还利用相对位置编码提高了自注意力机制的效率，使得模型能够在不大幅增加计算成本的情况下更好地理解图像中的长距离关联特征。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-456"
+    },
+    "reference": {
+      "topic": "utnet-medical-image-segmentation",
+      "citation_apa": "Gao, Y., Zhou, M., & Metaxas, D. (2021). UTNet: A Hybrid Transformer Architecture for Medical Image Segmentation. arXiv preprint arXiv:2107.00781.",
+      "evidence_file": "PartA_知识资产与评测基准/data/utnet-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Transformer",
+        "Medical Image Segmentation",
+        "Self-Attention",
+        "Hybrid Architecture"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "UTNet通过结合自注意力机制与卷积操作，克服了传统卷积神经网络仅能从邻近像素获取信息而难以捕捉全局依赖性的缺点。此外，它还利用相对位置编码提高了自注意力机制的效率，使得模型能够在不大幅增加计算成本的情况下更好地理解图像中的长距离关联特征。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-059",
+    "question": "V-Net中引入的基于Dice系数的损失函数是如何帮助解决前景与背景体素数量不平衡问题的？",
+    "answer": "V-Net中采用的基于Dice系数的损失函数直接衡量了预测分割结果与真实标签之间的重叠程度，这使得即使在前景体素数量远小于背景体素的情况下，模型也能有效地学习到正确的分割边界。相比于传统的交叉熵损失，这种方法更能准确地反映分割质量，特别是在类别极度不平衡的数据集中。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "v-net-3d-medical-image-segmentation",
+      "citation_apa": "Milletari, F., Navab, N., & Ahmadi, S. A. (2016). V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation. arXiv preprint arXiv:1606.04797.",
+      "evidence_file": "PartA_知识资产与评测基准/data/v-net-3d-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Convolutional Neural Networks",
+        "3D Medical Image Segmentation",
+        "V-Net",
+        "Data Augmentation"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "V-Net中采用的基于Dice系数的损失函数直接衡量了预测分割结果与真实标签之间的重叠程度，这使得即使在前景体素数量远小于背景体素的情况下，模型也能有效地学习到正确的分割边界。相比于传统的交叉熵损失，这种方法更能准确地反映分割质量，特别是在类别极度不平衡的数据集中。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-060",
+    "question": "残差网络是如何解决随着网络层数加深而出现的退化问题的？",
+    "answer": "残差网络通过引入残差块解决了这一问题，每个残差块内部包含一个跳跃连接（shortcut connection），它允许信息直接跨过一层或多层传递。这样设计的好处是即使堆叠更多的层也不会导致性能下降，因为新增加的层可以简单地学习到恒等映射，从而保证了网络不会因为深度增加而变得更难训练。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-897"
+    },
+    "reference": {
+      "topic": "residual-networks-image-recognition",
+      "citation_apa": "He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep Residual Learning for Image Recognition. Microsoft Research.",
+      "evidence_file": "PartA_知识资产与评测基准/data/residual-networks-image-recognition/content.txt",
+      "keywords": [
+        "deep residual networks",
+        "image recognition",
+        "neural network training",
+        "imagenet"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "残差网络通过引入残差块解决了这一问题，每个残差块内部包含一个跳跃连接（shortcut connection），它允许信息直接跨过一层或多层传递。这样设计的好处是即使堆叠更多的层也不会导致性能下降，因为新增加的层可以简单地学习到恒等映射，从而保证了网络不会因为深度增加而变得更难训...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-061",
+    "question": "nnU-Net是如何实现对不同医学图像数据集的自动适应，并且在没有手动调整的情况下仍能保持高性能？",
+    "answer": "nnU-Net通过采用一种自我适应机制来针对不同的医学图像数据集进行优化。它基于标准的2D和3D U-Net架构，但引入了灵活的配置选项以自动调整网络结构、预处理步骤、训练策略等关键参数，从而确保模型能够根据特定数据集的特点做出最佳响应。此外，通过严格控制实验条件并使用广泛的数据集进行验证，nnU-Net展示了其强大的泛化能力和稳定性。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "academic-paper",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-123"
+    },
+    "reference": {
+      "topic": "nnu-net-medical-image-segmentation",
+      "citation_apa": "Isensee, F., Petersen, J., Klein, A., Zimmerer, D., Jaeger, P. F., Kohl, S., ... & Maier-Hein, K. H. (2018). nnU-Net: Self-adapting framework for U-Net-based medical image segmentation. arXiv preprint arXiv:1809.10486.",
+      "evidence_file": "PartA_知识资产与评测基准/data/nnu-net-medical-image-segmentation/content.txt",
+      "keywords": [
+        "Semantic Segmentation",
+        "Medical Imaging",
+        "U-Net",
+        "Self-adapting Framework"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "nnU-Net通过采用一种自我适应机制来针对不同的医学图像数据集进行优化。它基于标准的2D和3D U-Net架构，但引入了灵活的配置选项以自动调整网络结构、预处理步骤、训练策略等关键参数，从而确保模型能够根据特定数据集的特点做出最佳响应。此外，通过严格控制实验条件并使用广泛的数据...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-062",
+    "question": "请解释在PyTorch中如何利用广播机制处理不同形状的张量，并给出一个具体的例子。",
+    "answer": "在PyTorch中，广播机制允许对不同形状的张量执行算术运算。当两个张量的维度不匹配时，较小的张量会在其缺失的维度上被扩展以匹配较大张量的形状。例如，如果有一个形状为(3, 4)的张量A和一个形状为(1, 4)的张量B相加，那么B将沿着第一个维度被广播成(3, 4)，从而可以与A进行逐元素相加。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "textbook",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-tb-123"
+    },
+    "reference": {
+      "topic": "textbook-deep-learning-pytorch",
+      "citation_apa": "Zhang, A., Lipton, Z. C., & Li, M. (n.d.). 动手学深度学习-PyTorch(第二版). Retrieved from z-library.sk, 1lib.sk, z-lib.sk.",
+      "evidence_file": "PartA_知识资产与评测基准/data/textbook-deep-learning-pytorch/content.txt",
+      "keywords": [
+        "deep-learning",
+        "pytorch",
+        "data-manipulation",
+        "linear-algebra"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在PyTorch中，广播机制允许对不同形状的张量执行算术运算。当两个张量的维度不匹配时，较小的张量会在其缺失的维度上被扩展以匹配较大张量的形状。例如，如果有一个形状为(3, 4)的张量A和一个形状为(1, 4)的张量B相加，那么B将沿着第一个维度被广播成(3, 4)，从而可以与A...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-063",
+    "question": "请解释在处理非常大的数据集时，为什么MapReduce框架是有效的？并举例说明其应用场景。",
+    "answer": "MapReduce框架通过将任务分解为Map（映射）和Reduce（归约）两个阶段来处理大规模数据集，能够有效地利用多台机器进行并行计算，从而提高处理速度和效率。例如，在网页索引构建过程中，可以使用MapReduce首先将每个网页的内容映射成关键词及其频率，然后汇总这些信息以生成全局索引。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "textbook",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-tb-123"
+    },
+    "reference": {
+      "topic": "textbook-data-mining",
+      "citation_apa": "Rajaraman, A., Ullman, J., & Leskovec, J. (n.d.). [Title of the book]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/textbook-data-mining/content.txt",
+      "keywords": [
+        "data mining",
+        "large scale data",
+        "web mining",
+        "map-reduce"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "MapReduce框架通过将任务分解为Map（映射）和Reduce（归约）两个阶段来处理大规模数据集，能够有效地利用多台机器进行并行计算，从而提高处理速度和效率。例如，在网页索引构建过程中，可以使用MapReduce首先将每个网页的内容映射成关键词及其频率，然后汇总这些信息以生成...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-064",
+    "question": "请解释在信息检索中使用向量空间模型的基本原理，并讨论其优缺点。",
+    "answer": "向量空间模型是一种将文档表示为多维空间中的向量的方法，其中每个维度对应于一个词项。该模型通过计算查询向量与文档向量之间的相似度来确定相关性。优点包括简单直观、易于实现；缺点则在于忽略了词序信息，且对于高维稀疏数据处理效率较低。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "basic",
+      "source_type": "textbook",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-tb-123"
+    },
+    "reference": {
+      "topic": "textbook-information-retrieval",
+      "citation_apa": "Manning, C. D., Raghavan, P., & Schütze, H. (2009). An Introduction to Information Retrieval. Cambridge University Press.",
+      "evidence_file": "PartA_知识资产与评测基准/data/textbook-information-retrieval/content.txt",
+      "keywords": [
+        "information retrieval",
+        "boolean retrieval",
+        "index construction",
+        "web search"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "向量空间模型是一种将文档表示为多维空间中的向量的方法，其中每个维度对应于一个词项。该模型通过计算查询向量与文档向量之间的相似度来确定相关性。优点包括简单直观、易于实现；缺点则在于忽略了词序信息，且对于高维稀疏数据处理效率较低。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-065",
+    "question": "请解释在深度学习中，为什么需要理解并熟练运用线性代数？",
+    "answer": "在深度学习中，数据通常以多维数组（张量）的形式表示，而线性代数提供了处理这些高维数据结构的有效工具。通过矩阵运算可以实现高效的特征提取与转换；此外，在神经网络模型训练过程中，权重更新依赖于梯度下降算法，这也涉及到向量和矩阵的操作。因此，深入理解和灵活应用线性代数对于设计更优的深度学习模型至关重要。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "textbook",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-tb-123"
+    },
+    "reference": {
+      "topic": "textbook-deep-learning",
+      "citation_apa": "Zhang, A., Lipton, Z. C., & Li, M. (n.d.). 动手学深度学习-PyTorch(第二版). Retrieved from z-library.sk, 1lib.sk, z-lib.sk.",
+      "evidence_file": "PartA_知识资产与评测基准/data/textbook-deep-learning/content.txt",
+      "keywords": [
+        "deep-learning",
+        "pytorch",
+        "data-manipulation",
+        "linear-algebra"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在深度学习中，数据通常以多维数组（张量）的形式表示，而线性代数提供了处理这些高维数据结构的有效工具。通过矩阵运算可以实现高效的特征提取与转换；此外，在神经网络模型训练过程中，权重更新依赖于梯度下降算法，这也涉及到向量和矩阵的操作。因此，深入理解和灵活应用线性代数对于设计更优的深度...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-066",
+    "question": "请解释Hubel和Wiesel在1959年的研究中发现的简单细胞、复杂细胞以及超复杂细胞对于理解大脑如何处理视觉信息的重要性。",
+    "answer": "Hubel和Wiesel的研究揭示了猫的大脑皮层中存在对特定方向光线敏感的简单细胞、能够响应更广泛刺激模式的复杂细胞以及对运动终点特别敏感的超复杂细胞。这些发现为理解视觉信息是如何被大脑逐步解析并最终形成完整感知提供了重要线索，是现代计算神经科学与计算机视觉领域发展的基石之一。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-cnn-history",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Convolutional Neural Networks [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-cnn-history/content.txt",
+      "keywords": [
+        "convolutional-neural-networks",
+        "history-of-deep-learning",
+        "backpropagation",
+        "perceptron"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "Hubel和Wiesel的研究揭示了猫的大脑皮层中存在对特定方向光线敏感的简单细胞、能够响应更广泛刺激模式的复杂细胞以及对运动终点特别敏感的超复杂细胞。这些发现为理解视觉信息是如何被大脑逐步解析并最终形成完整感知提供了重要线索，是现代计算神经科学与计算机视觉领域发展的基石之一。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-067",
+    "question": "请解释循环神经网络（RNN）在处理序列数据时的优势，并举例说明其在自然语言处理中的具体应用。",
+    "answer": "循环神经网络（RNN）在处理序列数据时具有记忆功能，能够捕捉时间序列中的依赖关系。这使得RNN非常适合处理自然语言处理中的任务，如情感分类、机器翻译和文本生成等。例如，在情感分类任务中，RNN可以逐词读取句子并逐步更新隐藏状态，从而更好地理解整个句子的情感倾向。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-recurrent-neural-networks",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Lecture 10: Recurrent Neural Networks [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-recurrent-neural-networks/content.txt",
+      "keywords": [
+        "Recurrent Neural Networks",
+        "Sequence Processing",
+        "Image Captioning",
+        "Sentiment Classification"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "循环神经网络（RNN）在处理序列数据时具有记忆功能，能够捕捉时间序列中的依赖关系。这使得RNN非常适合处理自然语言处理中的任务，如情感分类、机器翻译和文本生成等。例如，在情感分类任务中，RNN可以逐词读取句子并逐步更新隐藏状态，从而更好地理解整个句子的情感倾向。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-068",
+    "question": "请解释在语义分割任务中使用滑动窗口方法的优缺点。",
+    "answer": "滑动窗口方法通过在图像上移动固定大小的窗口来提取局部区域，并对每个窗口中心的像素进行分类。优点是可以利用卷积神经网络（CNN）的强大特征提取能力，实现高精度的像素级分类。然而，这种方法的主要缺点是计算效率低下，因为相邻窗口之间存在大量重叠部分，导致重复计算。此外，该方法没有充分利用不同窗口之间的共享特征，进一步降低了效率。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-detection-and-segmentation",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Detection and Segmentation [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-detection-and-segmentation/content.txt",
+      "keywords": [
+        "recurrent networks",
+        "semantic segmentation",
+        "sliding window",
+        "cnn"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "滑动窗口方法通过在图像上移动固定大小的窗口来提取局部区域，并对每个窗口中心的像素进行分类。优点是可以利用卷积神经网络（CNN）的强大特征提取能力，实现高精度的像素级分类。然而，这种方法的主要缺点是计算效率低下，因为相邻窗口之间存在大量重叠部分，导致重复计算。此外，该方法没有充分利...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-069",
+    "question": "请解释如何使用t-SNE对CNN的最后一层特征向量进行降维，并讨论其相对于PCA的优势。",
+    "answer": "t-SNE是一种用于高维数据可视化的非线性降维技术，它通过将高维空间中的点映射到低维空间中来保持点之间的局部结构。对于CNN的最后一层特征向量，t-SNE能够更有效地捕捉数据点间的复杂关系，从而提供比PCA更为直观的数据分布视图。与PCA相比，t-SNE更适合于揭示数据集中的簇状结构，尤其是在处理具有高度非线性关系的数据时。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-visualizing-and-understanding-cnns",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Visualizing and Understanding Convolutional Neural Networks [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-visualizing-and-understanding-cnns/content.txt",
+      "keywords": [
+        "convolutional-neural-networks",
+        "visualization",
+        "feature-maps",
+        "dimensionality-reduction"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "t-SNE是一种用于高维数据可视化的非线性降维技术，它通过将高维空间中的点映射到低维空间中来保持点之间的局部结构。对于CNN的最后一层特征向量，t-SNE能够更有效地捕捉数据点间的复杂关系，从而提供比PCA更为直观的数据分布视图。与PCA相比，t-SNE更适合于揭示数据集中的簇状...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-070",
+    "question": "请解释变分自编码器（VAE）的工作原理，并讨论其在生成模型中的优势。",
+    "answer": "变分自编码器是一种结合了深度学习和贝叶斯推断的方法，用于学习数据的概率分布。它由两部分组成：编码器和解码器。编码器将输入数据映射到一个潜在空间，该空间通常具有较低维度；解码器则尝试从这个潜在表示重构原始输入。VAE的优势在于能够生成多样化的样本，同时保持对输入数据的良好重建能力，这使得它非常适合于图像生成等任务。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-generative-models",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Generative Models [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-generative-models/content.txt",
+      "keywords": [
+        "generative models",
+        "unsupervised learning",
+        "supervised learning",
+        "vae",
+        "gan"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "变分自编码器是一种结合了深度学习和贝叶斯推断的方法，用于学习数据的概率分布。它由两部分组成：编码器和解码器。编码器将输入数据映射到一个潜在空间，该空间通常具有较低维度；解码器则尝试从这个潜在表示重构原始输入。VAE的优势在于能够生成多样化的样本，同时保持对输入数据的良好重建能力，...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-071",
+    "question": "请解释在强化学习中，马尔可夫决策过程是如何帮助我们形式化问题的？并给出一个实际应用的例子。",
+    "answer": "马尔可夫决策过程(MDP)是强化学习的一个核心框架，它通过状态、动作、奖励和转移概率来描述一个智能体与其环境之间的互动。MDP假设当前状态包含了所有对未来状态预测有用的信息，即满足马尔可夫性质。这种模型允许我们将复杂的决策问题简化为一系列的状态转换，并基于这些转换来优化长期累积奖励。例如，在自动驾驶汽车的学习过程中，可以将车辆的位置、速度等信息视为状态，而加速、减速或转向则作为动作；根据车辆是否安全地到达目的地等因素给予正负奖励，从而训练出能够有效导航的策略。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-895"
+    },
+    "reference": {
+      "topic": "course-reinforcement-learning-basics",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). CS231n: Convolutional Neural Networks for Visual Recognition [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-reinforcement-learning-basics/content.txt",
+      "keywords": [
+        "Reinforcement Learning",
+        "Markov Decision Processes",
+        "Q-Learning",
+        "Policy Gradients"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "马尔可夫决策过程(MDP)是强化学习的一个核心框架，它通过状态、动作、奖励和转移概率来描述一个智能体与其环境之间的互动。MDP假设当前状态包含了所有对未来状态预测有用的信息，即满足马尔可夫性质。这种模型允许我们将复杂的决策问题简化为一系列的状态转换，并基于这些转换来优化长期累积奖...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-072",
+    "question": "请解释为什么在深度学习模型中采用剪枝技术可以提高能源效率，并简述其对模型准确性的影响。",
+    "answer": "剪枝技术通过移除权重较低的连接来简化神经网络结构，从而减少了模型所需的计算量和内存访问次数，进而降低了整体能耗。尽管剪枝会使得网络变得稀疏，但经过适当的再训练后，剩余的连接能够补偿被移除部分的功能，因此可以在不显著牺牲准确性的情况下实现更高的能效比。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-deep-learning-efficiency",
+      "citation_apa": "Han, S. (2017). Efficient Methods and Hardware for Deep Learning [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-deep-learning-efficiency/content.txt",
+      "keywords": [
+        "deep learning",
+        "model efficiency",
+        "pruning",
+        "energy consumption"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "剪枝技术通过移除权重较低的连接来简化神经网络结构，从而减少了模型所需的计算量和内存访问次数，进而降低了整体能耗。尽管剪枝会使得网络变得稀疏，但经过适当的再训练后，剩余的连接能够补偿被移除部分的功能，因此可以在不显著牺牲准确性的情况下实现更高的能效比。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-073",
+    "question": "请解释什么是对抗样本，并描述一种常见的生成对抗样本的方法。",
+    "answer": "对抗样本是指通过向输入数据添加微小扰动而生成的数据点，这些扰动能够导致机器学习模型做出错误的预测。一种常见的生成对抗样本的方法是快速梯度符号法（Fast Gradient Sign Method, FGSM），该方法通过对损失函数关于输入数据的梯度进行计算，并沿着梯度方向添加一个固定大小的扰动来生成对抗样本。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-adversarial-examples",
+      "citation_apa": "Goodfellow, I. (2017). Adversarial Examples and Adversarial Training [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-adversarial-examples/content.txt",
+      "keywords": [
+        "adversarial examples",
+        "adversarial training",
+        "machine learning security",
+        "neural networks"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "对抗样本是指通过向输入数据添加微小扰动而生成的数据点，这些扰动能够导致机器学习模型做出错误的预测。一种常见的生成对抗样本的方法是快速梯度符号法（Fast Gradient Sign Method, FGSM），该方法通过对损失函数关于输入数据的梯度进行计算，并沿着梯度方向添加一个...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-074",
+    "question": "请解释在图像分类任务中，为什么直接硬编码一个识别猫或其他物体的算法是不可行的？并描述一种基于机器学习的数据驱动方法如何克服这一难题。",
+    "answer": "直接硬编码一个识别特定对象（如猫）的算法非常困难，因为图像中的视觉特征受到多种因素的影响，比如视角、光照、形变等，这些都使得很难定义一套固定的规则来准确地识别所有情况下的目标对象。相反，通过采用数据驱动的方法，我们可以收集大量带有标签的图像数据，然后利用机器学习技术训练模型自动从这些数据中学习到区分不同类别的有效特征。例如，使用K-最近邻(K-NN)算法时，模型会记住所有的训练样本及其标签，在遇到新的测试样本时，根据其与已知样本之间的相似度来进行分类预测。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-image-classification-basics",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). CS231n: Convolutional Neural Networks for Visual Recognition [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-image-classification-basics/content.txt",
+      "keywords": [
+        "Image Classification",
+        "K-Nearest Neighbor",
+        "CIFAR10",
+        "Data-Driven Approach"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "直接硬编码一个识别特定对象（如猫）的算法非常困难，因为图像中的视觉特征受到多种因素的影响，比如视角、光照、形变等，这些都使得很难定义一套固定的规则来准确地识别所有情况下的目标对象。相反，通过采用数据驱动的方法，我们可以收集大量带有标签的图像数据，然后利用机器学习技术训练模型自动从...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-075",
+    "question": "请解释在神经网络训练过程中，为什么通常建议先推导出解析梯度再使用数值梯度进行验证？",
+    "answer": "在神经网络训练中，解析梯度计算速度快且精确，但容易因编程错误导致结果不准确；而数值梯度虽然计算较慢且为近似值，但实现简单不易出错。因此，为了保证模型训练的效率与准确性，一般先根据数学公式推导出解析梯度表达式，然后利用数值梯度作为检验手段来确认解析梯度实现无误。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-backpropagation-and-neural-networks",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Backpropagation and Neural Networks [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-backpropagation-and-neural-networks/content.txt",
+      "keywords": [
+        "backpropagation",
+        "neural networks",
+        "gradient descent",
+        "chain rule"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在神经网络训练中，解析梯度计算速度快且精确，但容易因编程错误导致结果不准确；而数值梯度虽然计算较慢且为近似值，但实现简单不易出错。因此，为了保证模型训练的效率与准确性，一般先根据数学公式推导出解析梯度表达式，然后利用数值梯度作为检验手段来确认解析梯度实现无误。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-076",
+    "question": "请简述卷积神经网络的发展历程中，哪些关键事件或技术进步促进了其成为当今最流行的图像识别方法之一？",
+    "answer": "卷积神经网络的发展历程中，几个关键事件和技术进步对其成为主流图像识别方法起到了重要作用：首先是Frank Rosenblatt在1957年提出的感知机算法；接着是Widrow和Hoff在1960年代开发的Adaline/Madaline系统；然后是LeCun等人在1998年提出的手写数字识别模型，该模型首次展示了卷积神经网络的强大能力；再者是Rumelhart等人于1986年推广的反向传播算法，它解决了多层神经网络训练中的梯度消失问题；最后是Hinton等人在2006年通过无监督预训练方法重振了深度学习领域，使得更深层次的网络结构得以实现。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-cnn-history",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Convolutional Neural Networks [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-cnn-history/content.txt",
+      "keywords": [
+        "convolutional-neural-networks",
+        "history-of-deep-learning",
+        "backpropagation",
+        "perceptron"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "卷积神经网络的发展历程中，几个关键事件和技术进步对其成为主流图像识别方法起到了重要作用：首先是Frank Rosenblatt在1957年提出的感知机算法；接着是Widrow和Hoff在1960年代开发的Adaline/Madaline系统；然后是LeCun等人在1998年提出的...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-077",
+    "question": "请解释为什么在深度学习中使用ReLU激活函数比Sigmoid激活函数更受欢迎？",
+    "answer": "ReLU激活函数（Rectified Linear Unit）在深度学习中比Sigmoid激活函数更受欢迎的原因主要有两点：首先，ReLU可以有效缓解梯度消失问题，因为它在正区间内导数为常数1，不会像Sigmoid那样随着输入值增大而趋近于零；其次，ReLU计算简单，只需判断是否大于零即可，这使得模型训练速度更快。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-neural-networks-training",
+      "citation_apa": "Li, F., Johnson, J., & Yeeung, S. (2017). Training Neural Networks, Part 2 [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-neural-networks-training/content.txt",
+      "keywords": [
+        "neural networks",
+        "activation functions",
+        "weight initialization",
+        "data preprocessing",
+        "batch normalization",
+        "hyperparameter search"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "ReLU激活函数（Rectified Linear Unit）在深度学习中比Sigmoid激活函数更受欢迎的原因主要有两点：首先，ReLU可以有效缓解梯度消失问题，因为它在正区间内导数为常数1，不会像Sigmoid那样随着输入值增大而趋近于零；其次，ReLU计算简单，只需判断是否...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-078",
+    "question": "在神经网络训练过程中，为什么需要进行权重初始化？请解释其对模型性能的影响。",
+    "answer": "权重初始化是神经网络训练中的关键步骤之一。如果初始权重设置得太小，会导致激活值趋向于零，进而使得梯度也接近于零，从而阻碍了学习过程；反之，若初始权重过大，则可能导致激活值饱和（特别是在使用tanh等激活函数时），同样会使梯度消失，影响模型的学习能力。合适的权重初始化能够确保各层之间有良好的激活分布，促进有效的学习进程。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-neural-networks-training",
+      "citation_apa": "Li, F., Johnson, J., & Yeeung, S. (2017). Training Neural Networks, Part 2 [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-neural-networks-training/content.txt",
+      "keywords": [
+        "neural networks",
+        "activation functions",
+        "weight initialization",
+        "data preprocessing",
+        "batch normalization",
+        "hyperparameter search"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "权重初始化是神经网络训练中的关键步骤之一。如果初始权重设置得太小，会导致激活值趋向于零，进而使得梯度也接近于零，从而阻碍了学习过程；反之，若初始权重过大，则可能导致激活值饱和（特别是在使用tanh等激活函数时），同样会使梯度消失，影响模型的学习能力。合适的权重初始化能够确保各层之...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-079",
+    "question": "请比较CUDA和OpenCL在编程GPU时的主要区别，并说明它们各自的优缺点。",
+    "answer": "CUDA是NVIDIA提供的并行计算平台和编程模型，专为NVIDIA GPU设计。它允许开发者使用C语言编写代码直接运行在GPU上，并提供了许多高级API如cuBLAS、cuFFT和cuDNN等。CUDA的优点在于其高度优化的性能和丰富的库支持，但仅限于NVIDIA硬件。而OpenCL是一种跨平台的并行计算框架，可以在多种硬件平台上运行，包括不同厂商的GPU和CPU。虽然OpenCL具有更好的兼容性，但在某些情况下可能不如CUDA高效。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-deep-learning-software",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Deep Learning Software [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-deep-learning-software/content.txt",
+      "keywords": [
+        "deep learning",
+        "gpu",
+        "cpu",
+        "frameworks"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "CUDA是NVIDIA提供的并行计算平台和编程模型，专为NVIDIA GPU设计。它允许开发者使用C语言编写代码直接运行在GPU上，并提供了许多高级API如cuBLAS、cuFFT和cuDNN等。CUDA的优点在于其高度优化的性能和丰富的库支持，但仅限于NVIDIA硬件。而Ope...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-080",
+    "question": "请解释AlexNet的第一层卷积操作是如何工作的？它使用了多少个滤波器？每个滤波器的尺寸是多少？步长是多少？以及该层输出的体积大小是多少？",
+    "answer": "在AlexNet中，第一层卷积操作使用了96个11x11大小的滤波器，以步长为4的方式应用于输入图像上。给定输入图像尺寸为227x227x3，根据公式(227-11)/4+1计算得出，该层的输出体积大小为55x55x96。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "medium",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-123"
+    },
+    "reference": {
+      "topic": "course-stanford-cnn-architectures",
+      "citation_apa": "Li, F.-F., Johnson, J., & Yeung, S. (2017). Lecture 9: CNN Architectures [Course slides]. Stanford University.",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-cnn-architectures/content.txt",
+      "keywords": [
+        "cnn-architectures",
+        "alexnet",
+        "vgg",
+        "googlenet",
+        "resnet"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "在AlexNet中，第一层卷积操作使用了96个11x11大小的滤波器，以步长为4的方式应用于输入图像上。给定输入图像尺寸为227x227x3，根据公式(227-11)/4+1计算得出，该层的输出体积大小为55x55x96。",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  },
+  {
+    "id": "qa-081",
+    "question": "请解释多类支持向量机损失函数的构成，并给出一个具体的例子来说明其工作原理。",
+    "answer": "多类支持向量机损失函数用于评估给定样本集上的分类性能。对于每个样本，它会计算正确类别得分与所有其他类别得分之间的差距。如果某个错误类别的得分比正确类别高出一定阈值，则会产生正损失；否则，损失为零。例如，在包含猫、汽车和青蛙三类的图像分类任务中，若某张猫的图片被赋予了如下得分：猫3.2分、汽车5.1分、青蛙-1.7分，则根据公式计算出的损失将反映模型对这张图片分类时的不确定性或错误程度。",
+    "metadata": {
+      "research_direction": "3D医学图像处理与深度学习架构",
+      "task_type": "domain_qa",
+      "difficulty": "hard",
+      "source_type": "course-resource",
+      "created_or_normalized_date": "2026-06-05",
+      "normalized_from_original_id": "qa-cr-895"
+    },
+    "reference": {
+      "topic": "course-stanford-cs231n-loss-functions-and-optimization",
+      "citation_apa": "Li, F., Johnson, J., & Yeung, S. (2017). Lecture 3: Loss Functions and Optimization [PDF]. Retrieved from http://cs231n.github.io/assignments2017/assignment1/",
+      "evidence_file": "PartA_知识资产与评测基准/data/course-stanford-cs231n-loss-functions-and-optimization/content.txt",
+      "keywords": [
+        "loss function",
+        "optimization",
+        "linear classifier",
+        "multiclass SVM"
+      ]
+    },
+    "grading_notes": {
+      "expected_answer_focus": "多类支持向量机损失函数用于评估给定样本集上的分类性能。对于每个样本，它会计算正确类别得分与所有其他类别得分之间的差距。如果某个错误类别的得分比正确类别高出一定阈值，则会产生正损失；否则，损失为零。例如，在包含猫、汽车和青蛙三类的图像分类任务中，若某张猫的图片被赋予了如下得分：猫3...",
+      "answer_source_policy": "回答应基于 reference.topic 对应知识资产，不允许脱离本地知识库扩展。"
+    }
+  }
+]

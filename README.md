@@ -1,175 +1,123 @@
-# Deep Learning & Life Sciences — AI Agent Course Project
+# 3D Medical Image Intelligent Agent
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Course project submission for **Deep Learning & Life Sciences — AI Agent Course Project**.
 
-> A course project assignment for "Deep Learning and Life Sciences", focusing on building an AI Agent-based knowledge Q&A platform for protein corona research.
+## Topic
 
-## 📋 Overview
+`medical-image-segmentation`
 
-This repository contains the complete assignment specifications for a course project where students build an intelligent Q&A system using multi-agent collaboration. The project is divided into **mandatory foundational modules** and **optional advanced modules** with three difficulty levels.
+This project builds a local AI agent for 3D medical image analysis. It combines:
 
-**Total Score: 100 points**
-- Knowledge Assets (35 points)
-- Evaluation Benchmark (35 points)
-- Knowledge Q&A Project (30 points)
+- evidence-grounded medical knowledge Q&A,
+- NIfTI medical image preprocessing,
+- segmentation visualization and Dice/IoU evaluation,
+- MedSAM model adapter integration.
 
-## 📁 Repository Structure
+## Assignment Completion Summary
 
-```
+| Required Part | Requirement | Completed |
+| --- | --- | --- |
+| Knowledge Assets | At least 20 valid knowledge sets | 75 knowledge sets |
+| Evaluation Benchmark | At least 20 QA test questions | 81 QA items |
+| Knowledge Q&A Project | Optional modules with total difficulty >= 4 | Total selected difficulty = 4 |
+
+## Optional Modules Selected
+
+| Category | Module | Level | Evidence in this project |
+| --- | --- | ---: | --- |
+| Memory | Expand Knowledge Assets | 1 | 75 curated knowledge assets with coverage analysis |
+| Memory | Agentic RAG | 1 | Local retrieval-based expert QA with benchmark-assisted context |
+| Orchestration | Basic Static Orchestration | 1 | Gradio UI routes tasks to QA, data processing, visualization, and MedSAM prediction modules |
+| Skills | Deploy / Integrate Tool or Skill | 1 | MedSAM adapter and segmentation utility tools integrated into the workflow |
+
+Total difficulty: `1 + 1 + 1 + 1 = 4`.
+
+## Repository Structure
+
+```text
 .
-├── README.md                          # This file
-├── ch/                                # Chinese version
-│   ├── 评分标准.md                     # Grading criteria
-│   ├── 基础模块/
-│   │   ├── 知识资产.md
-│   │   ├── 评测基准.md
-│   │   └── 知识问答项目.md
-│   └── 可选模块/
-│       ├── 技能.md
-│       ├── 编排.md
-│       └── 记忆.md
-│
-└── en/                                # English version
-    ├── grading_criteria.md
-    ├── foundational_modules/
-    │   ├── knowledge_asset.md
-    │   ├── benchmark.md
-    │   └── knowledge_qa_project.md
-    └── optional_modules/
-        ├── skills.md
-        ├── orchestration.md
-        └── memory.md
+├── README.md
+├── requirements.txt
+├── code/
+│   ├── web_ui.py
+│   ├── expert_qa_agent.py
+│   ├── medical_agent.py
+│   ├── segmentation_visualizer.py
+│   ├── path_config.py
+│   └── model_adapters/
+├── knowledge_assets/
+│   └── data/
+├── benchmark/
+│   ├── qa_dataset.json
+│   └── qa_dataset_enhanced.json
+├── docs/
+├── results/
+├── screenshots/
+└── demo/
 ```
 
-## 🎯 Foundational Modules (Mandatory)
+## How to Run
 
-All students must complete the following three modules:
+1. Install Python 3.11.
 
-### 1. Knowledge Assets (35 points)
-Collect and organize ≥20 knowledge sets related to computational biology and deep learning. Each knowledge set includes:
-- `content/` — Original content (papers, web pages, etc.)
-- `keywords.json` — Keywords and topic classification
-- `source.json` — Source metadata (DOI, URL, etc.)
+2. Install dependencies:
 
-**Research Topic Themes**: Students can select one of the following topics as their research direction:
-
-| Topic | Description |
-|------|------|
-| `protein-corona` | Protein Corona |
-| `single-cell-omics` | Single-cell Omics |
-| `genomics-sequencing` | Genomics and Sequencing |
-| `gene-perturbation` | Gene Perturbation |
-| `drug-discovery` | Drug Discovery |
-| `protein-structure` | Protein Structure |
-| `neural-network` | Neural Networks |
-| `graph-neural-network` | Graph Neural Networks |
-| `generative-model` | Generative Models |
-| `foundation-model` | Foundation Models |
-| `multi-omics` | Multi-omics Integration |
-| `spatial-biology` | Spatial Biology |
-| `epigenomics` | Epigenomics |
-| `biomedical-nlp` | Biomedical Natural Language Processing |
-| `molecular-dynamics` | Molecular Dynamics |
-| `medical-image-reconstruction` | Medical Image Reconstruction |
-| `medical-image-segmentation` | Medical Image Segmentation |
-| `medical-image-classification` | Medical Image Classification/Recognition |
-| `medical-image-registration` | Medical Image Registration |
-| `medical-image-synthesis` | Medical Image Synthesis |
-
-Students can define custom keywords (using kebab-case format), but topics should align with the selected research direction.
-
-### 2. Evaluation Benchmark (35 points)
-Build a test suite with ≥20 questions covering the knowledge base. Each question includes:
-- Question text and standard answer
-- Source citation
-- Topic classification
-- Difficulty rating
-
-### 3. Knowledge Q&A Project (30 points)
-Implement an intelligent Q&A system by selecting optional modules.
-
-**Module Selection Rule**: The sum of difficulty values of selected modules must be **≥ 4**.
-
-Examples of valid combinations:
-- One Lv.2 + one Lv.2 (2 + 2 = 4)
-- One Lv.1 + one Lv.3 (1 + 3 = 4)
-- Two Lv.1 + one Lv.2 (1 + 1 + 2 = 4)
-- One Lv.1 + two Lv.2 + one Lv.3 (1 + 2 + 2 + 3 = 8) — exceeds minimum, allowed
-
-The final score is calculated as:
-```
-Weighted Total = Σ(Module Score × Module Weight)
-Knowledge Q&A Score = Weighted Total × 0.3
+```bash
+python -m pip install -r requirements.txt
 ```
 
-## 🚀 Optional Modules (Self-selected)
+3. Create `code/.env` from `code/.env.example`:
 
-Students choose tasks from three categories. Each module has a difficulty level (1=Basic, 2=Intermediate, 3=Challenge). **The sum of selected modules' difficulty values must be at least 4.**
+```text
+API_KEY=your_api_key_here
+```
 
-### 🛠️ Skill System (`技能.md` / `skills.md`)
-| Module | Level | Description |
-|--------|-------|-------------|
-| Deploy MCP Tool/Skill | Lv.1 | Integrate an existing MCP tool into the platform |
-| Build Domain MCP/Skill | Lv.2 | Create MCP interfaces for bioinformatics tools (UniProt, PDB, BLAST, etc.) |
-| Large-scale Skill Routing | Lv.2 | Implement a router for ≥2000 skills with semantic search |
-| Self-Evolving Skill System | Lv.2 | Extract patterns from usage logs to auto-generate new skills |
+4. Start the web UI:
 
-### 🔀 Workflow Orchestration (`编排.md` / `orchestration.md`)
-| Module | Level | Description |
-|--------|-------|-------------|
-| Basic Static Orchestration | Lv.1 | Fixed multi-agent collaboration workflow (≥4 agents) |
-| Basic Dynamic Orchestration | Lv.1 | Dynamic agent creation and parallel execution |
-| Advanced Static Orchestration | Lv.2 | Pre-defined workflow templates with JSON/YAML config |
-| Advanced Dynamic Orchestration | Lv.3 | Auto-generated workflows with planning and error recovery |
+```bash
+cd code
+python web_ui.py
+```
 
-### 🧠 Memory System (`记忆.md` / `memory.md`)
-| Module | Level | Description |
-|--------|-------|-------------|
-| Expand Knowledge Assets | Lv.1 | Add ≥30 new knowledge sets with coverage analysis |
-| Structured Knowledge Base | Lv.1 | Build entity-relation graphs for knowledge retrieval |
-| Agentic RAG | Lv.1 | Implement iterative retrieval with self-correction |
-| Persistent Memory System | Lv.1 | Multi-layer memory (working/episodic/semantic) |
-| Multi-hop Reasoning | Lv.2 | Complex multi-step retrieval with verification loops |
-| Multimodal Knowledge Base | Lv.2 | Support text/image/table modalities |
-| Self-Evolving Memory | Lv.3 | Auto-extract experience units and optimize memory structure |
+5. Open the local Gradio URL printed in the terminal, usually:
 
-## 📊 Grading
+```text
+http://127.0.0.1:7860
+```
 
-See [评分标准](ch/评分标准.md) or [grading_criteria](en/grading_criteria.md) for detailed grading criteria.
+## Main Features
 
-**Key Principles:**
-- Foundational modules focus on completeness and quality
-- Optional modules focus on functionality and demonstrable results
-- Higher difficulty modules carry more weight in the final score
-- Code must be runnable; documentation must be complete
+- **Expert QA Agent**: loads local knowledge assets and QA examples for evidence-grounded answers.
+- **NIfTI Processing**: converts raw medical image and mask volumes into standardized NumPy arrays.
+- **Segmentation Workspace**: supports slice browsing, mask overlay, and Dice/IoU metrics.
+- **MedSAM Adapter**: supports optional MedSAM checkpoint inference when `medsam_vit_b.pth` is available.
 
-## 🛠️ Tech Stack (Recommended)
+## Data and Model Weight Policy
 
-- **Agent Framework**: Agno, LangChain, LangGraph, CrewAI, or AutoGen
-- **Knowledge Base**: Vector DB (Chroma, Weaviate, Milvus) or Graph DB (Neo4j)
-- **MCP Protocol**: For tool integration and skill standardization
-- **Evaluation**: Custom benchmark suite with automated scoring
+Large medical imaging files and model checkpoints are intentionally excluded from the Git submission.
 
-## 📚 References
+Excluded examples:
 
-Key papers referenced across modules:
-- **SkillRouter** (2026) — Large-scale skill routing
-- **AAFLOW** (2026) — Agentic workflow patterns
-- **Graph RAG** (2024) / **LinearRAG** (2025) — Knowledge retrieval
-- **Agentic RAG Survey** (2025) — Iterative retrieval methods
-- **Foundation Agents Memory Survey** (2026) — Memory architectures
-- **MSTAR** (2026) — Self-evolving memory systems
+- `code/npc_dataset_nii/`
+- `model_weights/`
+- `*.nii.gz`
+- `*.npy`
+- `*.pth`
 
-## 📝 Submission
+The code supports these files when placed locally, but they should not be committed to GitHub.
 
-1. Fork this repository
-2. Complete the foundational modules in your fork
-3. Select and implement optional modules
-4. Submit a Pull Request with:
-   - All code and documentation
-   - Evaluation benchmark results
-   - Demo screenshots or logs
+## Validation
 
-## 📧 Contact
+See:
 
-For questions about the assignment, please open an issue in this repository.
+- `results/validation_report.md`
+- `results/demo_log.md`
+- `docs/optional_modules.md`
+- `docs/coverage_analysis.md`
+
+## Demo Materials
+
+- Editable presentation: `docs/Medical_AI_Agent_Editable_With_Video_Placeholder.pptx`
+- Bilingual speech script: `docs/Medical_AI_Agent_Bilingual_Speech.txt`
+- Demo video: `demo/Medical_AI_Agent_Demo_20260621_195154.mp4`
+- Screenshots: `screenshots/`
