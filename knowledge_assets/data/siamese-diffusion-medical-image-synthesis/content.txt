@@ -1,0 +1,1 @@
+本文针对医学图像分割中因标注数据稀缺而面临的挑战，提出了一种名为Siamese-Diffusion的新方法。该方法结合了Mask-Diffusion和Image-Diffusion两个组件，并通过引入噪声一致性损失来提高Mask-Diffusion在参数空间中的形态保真度。实验结果表明，与现有技术相比，Siamese-Diffusion不仅提高了合成图像的质量，还增强了模型的多样性和可扩展性，在多项基准测试上取得了显著性能提升。

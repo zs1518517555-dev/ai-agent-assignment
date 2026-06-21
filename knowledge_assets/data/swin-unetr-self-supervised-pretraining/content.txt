@@ -1,0 +1,1 @@
+本文提出了一种新的自监督预训练框架，专为3D医学图像分析设计。该框架基于Swin Transformer架构，引入了Swin UNETR模型，并通过定制的代理任务来学习人体解剖结构的基本模式。实验表明，在5,050张公开CT图像上进行预训练后，该模型在Beyond the Cranial Vault (BTCV)分割挑战和Medical Segmentation Decathlon (MSD)数据集上的表现优于现有方法。
